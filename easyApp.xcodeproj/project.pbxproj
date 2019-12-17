@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2797961A23A2478200683EA0 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797961923A2478200683EA0 /* ScannerViewController.swift */; };
+		2797961C23A25A0800683EA0 /* PhotoDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797961B23A25A0800683EA0 /* PhotoDetailedViewController.swift */; };
 		28EAFBF423A2370000C10309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EAFBF323A2370000C10309 /* AppDelegate.swift */; };
 		28EAFBF623A2370000C10309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EAFBF523A2370000C10309 /* ViewController.swift */; };
 		28EAFBF923A2370000C10309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28EAFBF723A2370000C10309 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2797961923A2478200683EA0 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		2797961B23A25A0800683EA0 /* PhotoDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailedViewController.swift; sourceTree = "<group>"; };
 		28EAFBF023A2370000C10309 /* easyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28EAFBF323A2370000C10309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28EAFBF523A2370000C10309 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				28EAFBFA23A2370200C10309 /* Assets.xcassets */,
 				28EAFBFC23A2370200C10309 /* LaunchScreen.storyboard */,
 				28EAFBFF23A2370200C10309 /* Info.plist */,
+				2797961923A2478200683EA0 /* ScannerViewController.swift */,
+				2797961B23A25A0800683EA0 /* PhotoDetailedViewController.swift */,
 			);
 			path = easyApp;
 			sourceTree = "<group>";
@@ -136,7 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				28EAFBF623A2370000C10309 /* ViewController.swift in Sources */,
+				2797961A23A2478200683EA0 /* ScannerViewController.swift in Sources */,
 				28EAFBF423A2370000C10309 /* AppDelegate.swift in Sources */,
+				2797961C23A25A0800683EA0 /* PhotoDetailedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
