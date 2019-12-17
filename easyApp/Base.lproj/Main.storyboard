@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,28 +10,106 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Index View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="easyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IndexViewController" customModule="easyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Allergien" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyd-2e-anq">
-                                <rect key="frame" x="178" y="144" width="67" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Allergien" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyd-2e-anq">
+                                <rect key="frame" x="160" y="20" width="94" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.36743507922535212" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wYE-go-bqM">
+                                <rect key="frame" x="0.0" y="361" width="414" height="746"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="746" id="obU-Xh-sSD"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="allergies_cell" rowHeight="68" id="EEQ-du-uAn" customClass="MyAllergiesTableViewCell" customModule="easyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EEQ-du-uAn" id="ARH-ef-MFS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laktose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXM-WL-vAY">
+                                                    <rect key="frame" x="26" y="20" width="69" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSp-Zz-yfx">
+                                                    <rect key="frame" x="355" y="15" width="33" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="33" id="GWo-zc-WQu"/>
+                                                        <constraint firstAttribute="width" constant="33" id="sRg-Fq-Qrb"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="icons8-trash-50"/>
+                                                    <connections>
+                                                        <action selector="deleteAllergie:" destination="EEQ-du-uAn" eventType="touchUpInside" id="9eb-fQ-hd9"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bSp-Zz-yfx" secondAttribute="trailing" constant="6" id="AOO-aD-tdo"/>
+                                                <constraint firstItem="bSp-Zz-yfx" firstAttribute="bottom" secondItem="qXM-WL-vAY" secondAttribute="bottom" id="Btg-FJ-1be"/>
+                                                <constraint firstItem="bSp-Zz-yfx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qXM-WL-vAY" secondAttribute="trailing" constant="10" id="GmX-LW-hpS"/>
+                                                <constraint firstItem="qXM-WL-vAY" firstAttribute="leading" secondItem="ARH-ef-MFS" secondAttribute="leadingMargin" constant="6" id="PuS-nB-v2d"/>
+                                                <constraint firstItem="qXM-WL-vAY" firstAttribute="top" secondItem="ARH-ef-MFS" secondAttribute="top" constant="20" id="WRH-8y-LOq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qXM-WL-vAY" secondAttribute="bottom" constant="9" id="bFV-iR-RVJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="allergieName" destination="qXM-WL-vAY" id="pXQ-Mx-Qi7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <pickerView contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="EJg-9h-toC">
+                                <rect key="frame" x="0.0" y="81" width="414" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaA-1a-6Gg">
+                                <rect key="frame" x="196" y="304.66666666666669" width="22" height="36.666666666666686"/>
+                                <connections>
+                                    <action selector="addAllergieToMyList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qa3-7E-aoy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wYE-go-bqM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9wU-YY-e5t"/>
+                            <constraint firstItem="wYE-go-bqM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="361" id="CQJ-AL-QNB"/>
+                            <constraint firstItem="wYE-go-bqM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IIo-U1-lLG"/>
+                            <constraint firstItem="XaA-1a-6Gg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KyN-N8-36Z"/>
+                            <constraint firstItem="EJg-9h-toC" firstAttribute="top" relation="lessThanOrEqual" secondItem="Hyd-2e-anq" secondAttribute="bottom" constant="30.666666666666671" id="MKE-cs-EDc"/>
+                            <constraint firstItem="Hyd-2e-anq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Uaj-M4-mL7"/>
+                            <constraint firstItem="XaA-1a-6Gg" firstAttribute="top" secondItem="EJg-9h-toC" secondAttribute="bottom" constant="8" id="V8A-fp-hjP"/>
+                            <constraint firstItem="wYE-go-bqM" firstAttribute="top" secondItem="XaA-1a-6Gg" secondAttribute="bottom" constant="19.666666666666686" id="Xds-fb-O19"/>
+                            <constraint firstItem="Hyd-2e-anq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="arN-0h-ruj"/>
+                            <constraint firstItem="EJg-9h-toC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="r0P-5w-Cbp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EJg-9h-toC" secondAttribute="trailing" id="rCP-u5-swh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myAllergiesTable" destination="wYE-go-bqM" id="xTB-Zt-Kwt"/>
+                        <outlet property="pickerAllergies" destination="EJg-9h-toC" id="9it-Ts-oZN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="137.27678571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-trash-50" width="50" height="50"/>
+    </resources>
 </document>
