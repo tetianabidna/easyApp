@@ -9,24 +9,24 @@
 /* Begin PBXBuildFile section */
 		2797961A23A2478200683EA0 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797961923A2478200683EA0 /* ScannerViewController.swift */; };
 		2797961C23A25A0800683EA0 /* PhotoDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797961B23A25A0800683EA0 /* PhotoDetailedViewController.swift */; };
+		28E07F1F23AB98E20001A63B /* MyAllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E07F1E23AB98E20001A63B /* MyAllergiesTableViewCell.swift */; };
 		28EAFBF423A2370000C10309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EAFBF323A2370000C10309 /* AppDelegate.swift */; };
 		28EAFBF923A2370000C10309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28EAFBF723A2370000C10309 /* Main.storyboard */; };
 		28EAFBFB23A2370200C10309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EAFBFA23A2370200C10309 /* Assets.xcassets */; };
 		28EAFBFE23A2370200C10309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28EAFBFC23A2370200C10309 /* LaunchScreen.storyboard */; };
-		28FC45FA23AB8F920021AB71 /* MyAllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FC45F923AB8F920021AB71 /* MyAllergiesTableViewCell.swift */; };
 		28FC45FC23AB91060021AB71 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FC45FB23AB91060021AB71 /* IndexViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2797961923A2478200683EA0 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		2797961B23A25A0800683EA0 /* PhotoDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailedViewController.swift; sourceTree = "<group>"; };
+		28E07F1E23AB98E20001A63B /* MyAllergiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAllergiesTableViewCell.swift; sourceTree = "<group>"; };
 		28EAFBF023A2370000C10309 /* easyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28EAFBF323A2370000C10309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28EAFBF823A2370000C10309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28EAFBFA23A2370200C10309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28EAFBFD23A2370200C10309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28EAFBFF23A2370200C10309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28FC45F923AB8F920021AB71 /* MyAllergiesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAllergiesTableViewCell.swift; path = "../../../../Desktop/easyApp 2/easyApp/MyAllergiesTableViewCell.swift"; sourceTree = "<group>"; };
 		28FC45FB23AB91060021AB71 /* IndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,13 +62,13 @@
 			children = (
 				28EAFBF323A2370000C10309 /* AppDelegate.swift */,
 				28FC45FB23AB91060021AB71 /* IndexViewController.swift */,
-				28FC45F923AB8F920021AB71 /* MyAllergiesTableViewCell.swift */,
 				28EAFBF723A2370000C10309 /* Main.storyboard */,
 				28EAFBFA23A2370200C10309 /* Assets.xcassets */,
 				28EAFBFC23A2370200C10309 /* LaunchScreen.storyboard */,
 				28EAFBFF23A2370200C10309 /* Info.plist */,
 				2797961923A2478200683EA0 /* ScannerViewController.swift */,
 				2797961B23A25A0800683EA0 /* PhotoDetailedViewController.swift */,
+				28E07F1E23AB98E20001A63B /* MyAllergiesTableViewCell.swift */,
 			);
 			path = easyApp;
 			sourceTree = "<group>";
@@ -144,7 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28FC45FA23AB8F920021AB71 /* MyAllergiesTableViewCell.swift in Sources */,
+				28E07F1F23AB98E20001A63B /* MyAllergiesTableViewCell.swift in Sources */,
 				2797961A23A2478200683EA0 /* ScannerViewController.swift in Sources */,
 				28EAFBF423A2370000C10309 /* AppDelegate.swift in Sources */,
 				2797961C23A25A0800683EA0 /* PhotoDetailedViewController.swift in Sources */,
