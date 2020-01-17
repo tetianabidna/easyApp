@@ -8,19 +8,13 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
-    
-    
-   
-    @IBAction func doSmth(_ sender: UIButton) {
-        
-        performSegue(withIdentifier: "resultScreenSegue", sender: self)
-    }
-    
+    var barcode: String = ""
     
     @IBAction func promptText(_ sender: Any) {
         let ac = UIAlertController(title: "Barcode eingeben", message: "Barcode eingeben", preferredStyle: .alert)
@@ -28,9 +22,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
             
-            let textBarcode = ac.textFields![0]
-            
-    }
+            self.barcode = ac.textFields![0].text!
+            self.performSegue(withIdentifier: "resultScreenSegue", sender: self)
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
             print("Cancel button tapped");
         }
@@ -123,16 +117,29 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         func found(code: String) {
             print(code)
             
+            self.barcode = code
+            
             performSegue(withIdentifier: "resultScreenSegue", sender: self)
         }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if(segue.identifier == "resultScreenSegue"){
+            
+            // Create a new variable to store the instance of PlayerTableViewController
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.barcodeValue = self.barcode
+        }
+    }
 
     
-        override var prefersStatusBarHidden: Bool {
-            return true
-        }
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
-        override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-            return .portrait
-        }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+        
 }
 

@@ -2,8 +2,8 @@
 //  MyAllergiesTableViewCell.swift
 //  easyApp
 //
-//  Created by tbidn001 on 12.12.19.
-//  Copyright © 2019 tbidn001. All rights reserved.
+//  Created by tbidn001 on 07.01.20.
+//  Copyright © 2020 tbidn001. All rights reserved.
 //
 
 import UIKit
@@ -13,7 +13,7 @@ protocol RemoveModelDelegate : class{
 }
 
 class MyAllergiesTableViewCell: UITableViewCell {
-
+    
     weak var delegate: RemoveModelDelegate?
     
     @IBOutlet weak var allergieName: UILabel!
@@ -23,9 +23,9 @@ class MyAllergiesTableViewCell: UITableViewCell {
         delegate?.removeModel(currentCell: self)
     }
     
-    var model: UIAllergieModel?{
+    var model: UIMyAllergyModel?{
         didSet{
-            allergieName.text = model?.allergieName
+            allergieName.text = model?.allergyName
         }
     }
     
@@ -34,7 +34,7 @@ class MyAllergiesTableViewCell: UITableViewCell {
         // Initialization code
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
