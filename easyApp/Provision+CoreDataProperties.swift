@@ -9,6 +9,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 
 extension Provision {
@@ -17,9 +18,10 @@ extension Provision {
         return NSFetchRequest<Provision>(entityName: "Provision")
     }
 
-    @NSManaged public var barcode: String?
     @NSManaged public var name: String?
+    @NSManaged public var barcode: String?
     @NSManaged public var ingredients: String?
+    @NSManaged public var allergens: String?
     @NSManaged public var category: String?
-
+    @NSManaged public var picture: String?
 }

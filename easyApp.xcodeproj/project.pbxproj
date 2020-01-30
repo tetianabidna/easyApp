@@ -9,44 +9,46 @@
 /* Begin PBXBuildFile section */
 		2797961A23A2478200683EA0 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797961923A2478200683EA0 /* ScannerViewController.swift */; };
 		2797961C23A25A0800683EA0 /* PhotoDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2797961B23A25A0800683EA0 /* PhotoDetailedViewController.swift */; };
-		2838CDA423C5DF9D00776E1D /* EasyAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2838CDA223C5DF9D00776E1D /* EasyAppModel.xcdatamodeld */; };
+		28027E0623D9D09E008F520A /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28027E0523D9D09E008F520A /* UIViewX.swift */; };
 		2838CDA723C5F58500776E1D /* Allergy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CDA523C5F58500776E1D /* Allergy+CoreDataClass.swift */; };
 		2838CDA823C5F58500776E1D /* Allergy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CDA623C5F58500776E1D /* Allergy+CoreDataProperties.swift */; };
-		2838CDAA23C5F8AD00776E1D /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CDA923C5F8AD00776E1D /* PersistenceManager.swift */; };
 		288F0F0123C4B7E900B15024 /* AllAllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288F0F0023C4B7E900B15024 /* AllAllergiesTableViewCell.swift */; };
 		2890185023C4A1710097D404 /* MyAllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890184F23C4A1710097D404 /* MyAllergiesTableViewCell.swift */; };
 		2890185223C4AFE80097D404 /* AllergieEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890185123C4AFE80097D404 /* AllergieEditViewController.swift */; };
 		28E3577A23D08892007C87F6 /* Provision+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E3577823D08892007C87F6 /* Provision+CoreDataClass.swift */; };
 		28E3577B23D08892007C87F6 /* Provision+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E3577923D08892007C87F6 /* Provision+CoreDataProperties.swift */; };
 		28E3577D23D091AA007C87F6 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E3577C23D091AA007C87F6 /* ResultViewController.swift */; };
-		28E96DE323CDD610008C618F /* Allergies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E96DE223CDD610008C618F /* Allergies.swift */; };
 		28EAFBF423A2370000C10309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EAFBF323A2370000C10309 /* AppDelegate.swift */; };
 		28EAFBF923A2370000C10309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28EAFBF723A2370000C10309 /* Main.storyboard */; };
 		28EAFBFB23A2370200C10309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EAFBFA23A2370200C10309 /* Assets.xcassets */; };
 		28EAFBFE23A2370200C10309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28EAFBFC23A2370200C10309 /* LaunchScreen.storyboard */; };
+		28EDCA5F23D70565005AB5E1 /* AllergensDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDCA5E23D70565005AB5E1 /* AllergensDescription.swift */; };
+		28EDCA6123D713F4005AB5E1 /* ProvisionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDCA6023D713F4005AB5E1 /* ProvisionsManager.swift */; };
+		28EDCA6723D736DE005AB5E1 /* provisions.json in Resources */ = {isa = PBXBuildFile; fileRef = 28EDCA6623D736DD005AB5E1 /* provisions.json */; };
 		28FC45FC23AB91060021AB71 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FC45FB23AB91060021AB71 /* IndexViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2797961923A2478200683EA0 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		2797961B23A25A0800683EA0 /* PhotoDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailedViewController.swift; sourceTree = "<group>"; };
-		2838CDA323C5DF9D00776E1D /* EasyAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyAppModel.xcdatamodel; sourceTree = "<group>"; };
+		28027E0523D9D09E008F520A /* UIViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewX.swift; path = easyApp/UIViewX.swift; sourceTree = "<group>"; };
 		2838CDA523C5F58500776E1D /* Allergy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Allergy+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2838CDA623C5F58500776E1D /* Allergy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Allergy+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2838CDA923C5F8AD00776E1D /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		288F0F0023C4B7E900B15024 /* AllAllergiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAllergiesTableViewCell.swift; sourceTree = "<group>"; };
 		2890184F23C4A1710097D404 /* MyAllergiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAllergiesTableViewCell.swift; sourceTree = "<group>"; };
 		2890185123C4AFE80097D404 /* AllergieEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergieEditViewController.swift; sourceTree = "<group>"; };
 		28E3577823D08892007C87F6 /* Provision+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Provision+CoreDataClass.swift"; path = "easyApp/Provision+CoreDataClass.swift"; sourceTree = "<group>"; };
 		28E3577923D08892007C87F6 /* Provision+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Provision+CoreDataProperties.swift"; path = "easyApp/Provision+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		28E3577C23D091AA007C87F6 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		28E96DE223CDD610008C618F /* Allergies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergies.swift; sourceTree = "<group>"; };
 		28EAFBF023A2370000C10309 /* easyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28EAFBF323A2370000C10309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28EAFBF823A2370000C10309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28EAFBFA23A2370200C10309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28EAFBFD23A2370200C10309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28EAFBFF23A2370200C10309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28EDCA5E23D70565005AB5E1 /* AllergensDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergensDescription.swift; sourceTree = "<group>"; };
+		28EDCA6023D713F4005AB5E1 /* ProvisionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvisionsManager.swift; sourceTree = "<group>"; };
+		28EDCA6623D736DD005AB5E1 /* provisions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = provisions.json; path = easyApp/Assets.xcassets/provisions.json; sourceTree = "<group>"; };
 		28FC45FB23AB91060021AB71 /* IndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,8 @@
 		28EAFBE723A2370000C10309 = {
 			isa = PBXGroup;
 			children = (
+				28027E0523D9D09E008F520A /* UIViewX.swift */,
+				28EDCA6623D736DD005AB5E1 /* provisions.json */,
 				28E3577823D08892007C87F6 /* Provision+CoreDataClass.swift */,
 				28E3577923D08892007C87F6 /* Provision+CoreDataProperties.swift */,
 				28EAFBF223A2370000C10309 /* easyApp */,
@@ -85,8 +89,6 @@
 				2838CDA523C5F58500776E1D /* Allergy+CoreDataClass.swift */,
 				2838CDA623C5F58500776E1D /* Allergy+CoreDataProperties.swift */,
 				28EAFBF323A2370000C10309 /* AppDelegate.swift */,
-				2838CDA223C5DF9D00776E1D /* EasyAppModel.xcdatamodeld */,
-				28E96DE223CDD610008C618F /* Allergies.swift */,
 				28FC45FB23AB91060021AB71 /* IndexViewController.swift */,
 				2890184F23C4A1710097D404 /* MyAllergiesTableViewCell.swift */,
 				2890185123C4AFE80097D404 /* AllergieEditViewController.swift */,
@@ -98,7 +100,8 @@
 				28EAFBFC23A2370200C10309 /* LaunchScreen.storyboard */,
 				28EAFBFF23A2370200C10309 /* Info.plist */,
 				2797961B23A25A0800683EA0 /* PhotoDetailedViewController.swift */,
-				2838CDA923C5F8AD00776E1D /* PersistenceManager.swift */,
+				28EDCA5E23D70565005AB5E1 /* AllergensDescription.swift */,
+				28EDCA6023D713F4005AB5E1 /* ProvisionsManager.swift */,
 			);
 			path = easyApp;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				28EAFBFE23A2370200C10309 /* LaunchScreen.storyboard in Resources */,
 				28EAFBFB23A2370200C10309 /* Assets.xcassets in Resources */,
 				28EAFBF923A2370000C10309 /* Main.storyboard in Resources */,
+				28EDCA6723D736DE005AB5E1 /* provisions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,18 +181,18 @@
 				2890185023C4A1710097D404 /* MyAllergiesTableViewCell.swift in Sources */,
 				2797961A23A2478200683EA0 /* ScannerViewController.swift in Sources */,
 				28E3577A23D08892007C87F6 /* Provision+CoreDataClass.swift in Sources */,
-				28E96DE323CDD610008C618F /* Allergies.swift in Sources */,
+				28EDCA6123D713F4005AB5E1 /* ProvisionsManager.swift in Sources */,
 				28EAFBF423A2370000C10309 /* AppDelegate.swift in Sources */,
 				28E3577D23D091AA007C87F6 /* ResultViewController.swift in Sources */,
+				28EDCA5F23D70565005AB5E1 /* AllergensDescription.swift in Sources */,
 				2838CDA723C5F58500776E1D /* Allergy+CoreDataClass.swift in Sources */,
 				288F0F0123C4B7E900B15024 /* AllAllergiesTableViewCell.swift in Sources */,
 				28E3577B23D08892007C87F6 /* Provision+CoreDataProperties.swift in Sources */,
 				2797961C23A25A0800683EA0 /* PhotoDetailedViewController.swift in Sources */,
 				2838CDA823C5F58500776E1D /* Allergy+CoreDataProperties.swift in Sources */,
-				2838CDA423C5DF9D00776E1D /* EasyAppModel.xcdatamodeld in Sources */,
 				2890185223C4AFE80097D404 /* AllergieEditViewController.swift in Sources */,
-				2838CDAA23C5F8AD00776E1D /* PersistenceManager.swift in Sources */,
 				28FC45FC23AB91060021AB71 /* IndexViewController.swift in Sources */,
+				28027E0623D9D09E008F520A /* UIViewX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,19 +392,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		2838CDA223C5DF9D00776E1D /* EasyAppModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				2838CDA323C5DF9D00776E1D /* EasyAppModel.xcdatamodel */,
-			);
-			currentVersion = 2838CDA323C5DF9D00776E1D /* EasyAppModel.xcdatamodel */;
-			path = EasyAppModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 28EAFBE823A2370000C10309 /* Project object */;
 }

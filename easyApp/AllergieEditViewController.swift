@@ -8,10 +8,6 @@
 
 import UIKit
 import CoreData
-/*
-protocol AllAllergTableDelegate : class{
-    func getStandartAllergArray(allAllergiesArray: [UIAllAllergieModel])
-}*/
 
 // Model to fill cells in allAllergiesArray table
 class UIAllAllergieModel{
@@ -36,6 +32,7 @@ class AllergieEditViewController: UIViewController {
     var allAllergiesArray: [Allergy]! = [Allergy]()
     
     @IBOutlet weak var allAllergiesTable: UITableView!
+    @IBOutlet weak var gradientView: UIImageView!
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     var context: NSManagedObjectContext?
@@ -43,6 +40,7 @@ class AllergieEditViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        doGradientAnimation()
         
         print("--- AllergieEditViewController")
         
@@ -55,11 +53,25 @@ class AllergieEditViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
+        doGradientAnimation()
+
         
         self.allAllergiesArray = loadNamesFromDB()
         
         allAllergiesTable.dataSource = self
         allAllergiesTable.delegate = self as? UITableViewDelegate
+    }
+    
+    func doGradientAnimation(){
+        
+        print("in animation")
+        self.gradientView.transform = CGAffineTransform(translationX: 0, y: 0)
+        
+        UIView.animate(withDuration: 2, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
+            
+            let x = -self.gradientView.frame.width + self.view.frame.width
+            self.gradientView.transform = CGAffineTransform(translationX: x, y: 0)
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,27 +97,31 @@ class AllergieEditViewController: UIViewController {
             
             // read new Name
             let newAllergieName: String = alterController.textFields![0].text!
-            let currentNameExists: Bool = self.checkIfNameExists( newAllergieName: newAllergieName)
             
-            if(!currentNameExists){
+            if(newAllergieName != ""){
+                let currentNameExists: Bool = self.checkIfNameExists( newAllergieName: newAllergieName)
                 
-                // if the name is new then add it to the names array
-                self.saveDataInDB(allergyName: newAllergieName)
-                
-                self.allAllergiesArray = self.loadNamesFromDB()
-                self.allAllergiesTable.reloadData()
-                
-                print("New allergy was added")
-            }else{
-                
-                alterController.dismiss(animated: false, completion: nil)
-                print("Warning")
-                
-                let warningAlert = UIAlertController(title: "Warning", message: "Allergy exists already", preferredStyle: .alert)
-                warningAlert.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action:UIAlertAction!) in })
-                
-                self.present(warningAlert, animated: true, completion: nil)
+                if(!currentNameExists){
+                    
+                    // if the name is new then add it to the names array
+                    self.saveDataInDB(allergyName: newAllergieName)
+                    
+                    self.allAllergiesArray = self.loadNamesFromDB()
+                    self.allAllergiesTable.reloadData()
+                    
+                    print("New allergy was added")
+                }else{
+                    
+                    alterController.dismiss(animated: false, completion: nil)
+                    print("Warning")
+                    
+                    let warningAlert = UIAlertController(title: "Warning", message: "Allergy exists already", preferredStyle: .alert)
+                    warningAlert.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action:UIAlertAction!) in })
+                    
+                    self.present(warningAlert, animated: true, completion: nil)
+                }
             }
+            
         }
         
         alterController.addAction(submitAction)
@@ -175,7 +191,7 @@ class AllergieEditViewController: UIViewController {
        func deleteElementFromDB( allergy: Allergy) {
                context!.delete(allergy)
            
-           print("deleted successfuly: \(allergy.allergyName)")
+           print("deleted successfuly: \(allergy.allergyName!)")
        }
        
        
@@ -215,6 +231,7 @@ extension AllergieEditViewController: UITableViewDataSource{
         
         // eleents will be show reversed: allAllergiesArray!.count - indexPath.row - 1
         if let currentAllergie = allAllergiesArray?[allAllergiesArray!.count - indexPath.row - 1]{
+            
             currentCell.model = UIAllAllergieModel(allergieName: currentAllergie.allergyName!, isEditable: currentAllergie.isEditable)
             
             currentCell.butRemove.isHidden = !(currentCell.model?.isEditable)!
@@ -229,6 +246,7 @@ extension AllergieEditViewController: UITableViewDataSource{
         return currentCell
     }
 }
+
 
 
 //Cell delegate
@@ -254,12 +272,15 @@ extension AllergieEditViewController: AllAllergRemoveModelDelegate{
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned alterController] _ in
             
             let newAllergieName: String = alterController.textFields![0].text!
-            currentAllergy!.allergyName = newAllergieName
             
-            self.editElementInDB()
-            
-            currentCell.model?.allergieName = newAllergieName
-            self.allAllergiesTable.reloadData()
+            if(newAllergieName != ""){
+                currentAllergy!.allergyName = newAllergieName
+                
+                self.editElementInDB()
+                
+                currentCell.model?.allergieName = newAllergieName
+                self.allAllergiesTable.reloadData()
+            }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
@@ -274,16 +295,27 @@ extension AllergieEditViewController: AllAllergRemoveModelDelegate{
     
     func removeModel(currentCell: AllAllergiesTableViewCell) {
         
-        
-        for (index, model) in allAllergiesArray!.enumerated(){
-            if ( model.allergyName == currentCell.model!.allergieName){
-                
-                self.deleteElementFromDB(allergy: model)
-                
-                allAllergiesArray!.remove(at: index)
-                allAllergiesTable.reloadData()
-                break
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
+            print("animation")
+            
+            currentCell.allergieName.center.x += currentCell.butRemove.center.x - 80
+            currentCell.allergieName.alpha = 0
+            
+        }, completion: {
+            (value: Bool) in
+            
+            currentCell.allergieName.alpha = 1
+            
+            for (index, model) in self.allAllergiesArray!.enumerated(){
+                if ( model.allergyName == currentCell.model!.allergieName){
+                    
+                    self.deleteElementFromDB(allergy: model)
+                    
+                    self.allAllergiesArray!.remove(at: index)
+                    self.allAllergiesTable.reloadData()
+                    break
+                }
             }
-        }
+        })
     }
 }

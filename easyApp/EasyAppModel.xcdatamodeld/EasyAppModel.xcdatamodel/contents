@@ -11,14 +11,16 @@
         <attribute name="isEditable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="Provision" representedClassName=".Provision" syncable="YES">
+        <attribute name="allergens" optional="YES" attributeType="String" valueTransformerName="Provision" customClassName=".[String]"/>
         <attribute name="barcode" optional="YES" attributeType="String"/>
         <attribute name="category" optional="YES" attributeType="String"/>
-        <attribute name="ingredients" optional="YES" attributeType="String" customClassName="[String]"/>
+        <attribute name="ingredients" optional="YES" attributeType="String" valueTransformerName="Provision" customClassName=".[String]"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="picture" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES"/>
     </entity>
     <elements>
         <element name="Allergies" positionX="-63" positionY="0" width="128" height="88"/>
         <element name="Allergy" positionX="-28.25" positionY="-218.3203125" width="128" height="88"/>
-        <element name="Provision" positionX="204.4375" positionY="-17.24609375" width="128" height="103"/>
+        <element name="Provision" positionX="204.4375" positionY="-17.24609375" width="128" height="133"/>
     </elements>
 </model>

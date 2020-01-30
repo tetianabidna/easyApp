@@ -17,6 +17,7 @@ class MyAllergiesTableViewCell: UITableViewCell {
     weak var delegate: RemoveModelDelegate?
     
     @IBOutlet weak var allergieName: UILabel!
+    @IBOutlet weak var removeButton: UIButton!
     
     @IBAction func deleteAllergie(_ sender: Any) {
         
@@ -25,7 +26,9 @@ class MyAllergiesTableViewCell: UITableViewCell {
     
     var model: UIMyAllergyModel?{
         didSet{
+            
             allergieName.text = model?.allergyName
+
         }
     }
     
