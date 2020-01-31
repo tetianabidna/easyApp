@@ -22,15 +22,15 @@ class AllergensDescription{
     func searchForAllergens(ingredients: String, myAllergies: [Allergy]) -> Bool{
         
         for allergy in myAllergies{
-            print("allergy: \(allergy)")
+            //print("allergy: \(allergy)")
             
                 
                 if(descriptonDictionary[allergy.allergyName!] != nil){
-                    print("is in dictionary")
+                   // print("is in dictionary")
                     let allergens = descriptonDictionary[allergy.allergyName!]
 
                     for allergen in allergens!{
-                        print("allergen: \(allergen)")
+                        //print("allergen: \(allergen)")
                         if(ingredients.lowercased().contains(allergen)){
                             return true
                         }
@@ -43,6 +43,34 @@ class AllergensDescription{
             
         }
     
+        
+        return false
+    }
+    
+    func searchAllergiesInProvision(provision: Provision, myAllergies:[Allergy]) -> Bool{
+        
+        //print("searchAllergiesInProvision")
+        
+        var containsAllergens: Bool = false
+        
+        //print(provision.allergens!)
+        containsAllergens = searchForAllergens(ingredients: provision.allergens!, myAllergies: myAllergies)
+        
+        if containsAllergens {
+        //    print("Allergene gefunden")
+            return true
+        }
+        
+        //print(provision.ingredients!)
+        containsAllergens = searchForAllergens(ingredients: provision.ingredients!, myAllergies: myAllergies)
+        
+        if containsAllergens {
+        //    print("Allergene gefunden")
+            return true
+        }
+        
+        //print("keine Allergene")
+        
         
         return false
     }

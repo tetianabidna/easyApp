@@ -58,8 +58,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
             
-            self.barcode = ac.textFields![0].text!
-            self.performSegue(withIdentifier: "resultScreenSegue", sender: self)
+            self.found(code: ac.textFields![0].text!)
+           
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
             print("Cancel button tapped");
@@ -75,7 +75,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
         
         context = appDelegate?.persistentContainer.viewContext
-        //ProvisionsManager(context: context!)
+        
+    
+//ProvisionsManager(context: context!)
     
     
         view.backgroundColor = UIColor.black
@@ -202,7 +204,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         if(self.provision == nil){
             
             
-            let warningAlert = UIAlertController(title: "Warning", message: "Not founded", preferredStyle: .alert)
+            let warningAlert = UIAlertController(title: "Warning", message: "Not found", preferredStyle: .alert)
             warningAlert.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action:UIAlertAction!) in
                 print("ok")
                 self.captureSession.stopRunning()

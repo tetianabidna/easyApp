@@ -1,6 +1,22 @@
 {
     "provisions" : [
         {
+           "name" : "fdh",
+           "barcode" : "abc",
+           "ingredients" : "Zucker, Honig, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
+           "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
+           "category" : "Nüsse",
+           "picture": "grau"
+        },
+        {
+            "name" : "fdh",
+            "barcode" : "4305615543666",
+            "ingredients" : "Zucker, Honig, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
+            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
+            "category" : "Nüsse",
+            "picture": "grau"
+        },
+        {
             "name" : "Nussknacker",
             "barcode" : "4061458021616",
             "ingredients" : "Zucker, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
@@ -13,7 +29,79 @@
             "barcode" : "40893532",
             "ingredients" : "Cashewkerne",
             "allergens" : "Schalenfrüchte, Erdnüsse",
-            "category" : "Nuesse",
+            "category" : "Süßwaren",
+            "picture": "icons8-list-50"
+        },
+        {
+            "name" : "Corny Milch Classic   ",
+            "barcode" : "4011800562212",
+            "ingredients" : "Kakaohaltige Getreidecrispies (Reismehl 7%, WEIZENMEHL 3%, fettarmes Kakaopulver, VOLLMILCHPULVER, Zucker, Maismehl 1%, Salz), pflanzliches Fett (Kokosnuss, Palme), Cornflakes (Mais 14%, Zucker, Salz, GERSTENMALZ), Glukosesirup, Glukose-Fruktose-Sirup, Oligofruktose, Traubenzucker, geröstete VOLLKORNHAFERFLOCKEN 5%, Honig 5%, Zucker, VOLLMILCHPULVER 3%, MAGERMILCHPULVER 3%, Stabilisator Glycerin, Calciumcarbonat, Emulgator Sonnenblumen-Lecithine, Karamellzuckersirup, Salz, natürliche Aromen",
+            "allergens" : "Glutenhaltiges Getreide, Getreideerzeugnisse, Milch, Milcherzeugnisse (einschließlich Lactose). Nüsse und Nusserzeugnisse. Erdnüsse und Erdnusserzeugnisse",
+            "category" : "Süßwaren",
+            "picture": "logo"
+        },
+        {
+            "name" : "Nussknacker",
+            "barcode" : "4061458021616",
+            "ingredients" : "Zucker, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
+            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
+            "category" : "Süßwaren",
+            "picture": "grau"
+        },
+        {
+            "name" : "Cashewkerne",
+            "barcode" : "40893532",
+            "ingredients" : "Cashewkerne",
+            "allergens" : "Schalenfrüchte, Erdnüsse",
+            "category" : "Süßwaren",
+            "picture": "icons8-list-50"
+        },
+        {
+            "name" : "Corny Milch Classic   ",
+            "barcode" : "4011800562212",
+            "ingredients" : "Kakaohaltige Getreidecrispies (Reismehl 7%, WEIZENMEHL 3%, fettarmes Kakaopulver, VOLLMILCHPULVER, Zucker, Maismehl 1%, Salz), pflanzliches Fett (Kokosnuss, Palme), Cornflakes (Mais 14%, Zucker, Salz, GERSTENMALZ), Glukosesirup, Glukose-Fruktose-Sirup, Oligofruktose, Traubenzucker, geröstete VOLLKORNHAFERFLOCKEN 5%, Honig 5%, Zucker, VOLLMILCHPULVER 3%, MAGERMILCHPULVER 3%, Stabilisator Glycerin, Calciumcarbonat, Emulgator Sonnenblumen-Lecithine, Karamellzuckersirup, Salz, natürliche Aromen",
+            "allergens" : "Glutenhaltiges Getreide, Getreideerzeugnisse, Milch, Milcherzeugnisse (einschließlich Lactose). Nüsse und Nusserzeugnisse. Erdnüsse und Erdnusserzeugnisse",
+            "category" : "Süßwaren",
+            "picture": "logo"
+        },
+        {
+            "name" : "Nussknacker",
+            "barcode" : "4061458021616",
+            "ingredients" : "Zucker, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
+            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
+            "category" : "Süßwaren",
+            "picture": "grau"
+        },
+        {
+            "name" : "Cashewkerne",
+            "barcode" : "40893532",
+            "ingredients" : "Cashewkerne",
+            "allergens" : "Schalenfrüchte, Erdnüsse",
+            "category" : "Süßwaren",
+            "picture": "icons8-list-50"
+        },
+        {
+            "name" : "Corny Milch Classic   ",
+            "barcode" : "4011800562212",
+            "ingredients" : "Kakaohaltige Getreidecrispies (Reismehl 7%, WEIZENMEHL 3%, fettarmes Kakaopulver, VOLLMILCHPULVER, Zucker, Maismehl 1%, Salz), pflanzliches Fett (Kokosnuss, Palme), Cornflakes (Mais 14%, Zucker, Salz, GERSTENMALZ), Glukosesirup, Glukose-Fruktose-Sirup, Oligofruktose, Traubenzucker, geröstete VOLLKORNHAFERFLOCKEN 5%, Honig 5%, Zucker, VOLLMILCHPULVER 3%, MAGERMILCHPULVER 3%, Stabilisator Glycerin, Calciumcarbonat, Emulgator Sonnenblumen-Lecithine, Karamellzuckersirup, Salz, natürliche Aromen",
+            "allergens" : "Glutenhaltiges Getreide, Getreideerzeugnisse, Milch, Milcherzeugnisse (einschließlich Lactose). Nüsse und Nusserzeugnisse. Erdnüsse und Erdnusserzeugnisse",
+            "category" : "Süßwaren",
+            "picture": "logo"
+        },
+        {
+            "name" : "Nussknacker",
+            "barcode" : "4061458021616",
+            "ingredients" : "Zucker, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
+            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
+            "category" : "Süßwaren",
+            "picture": "grau"
+        },
+        {
+            "name" : "Cashewkerne",
+            "barcode" : "40893532",
+            "ingredients" : "Cashewkerne",
+            "allergens" : "Schalenfrüchte, Erdnüsse",
+            "category" : "Süßwaren",
             "picture": "icons8-list-50"
         },
         {

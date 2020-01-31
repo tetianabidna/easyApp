@@ -34,20 +34,40 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var darkView: UIViewX!
     
     @IBOutlet weak var okMark: UIImageView!
+    @IBOutlet weak var swipeLeftImg: UIImageView!
+    @IBOutlet weak var swipeLabel: UILabel!
+    
+    var swipeLeft: UISwipeGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         context = appDelegate?.persistentContainer.viewContext
         
-        let containsAllergens: Bool = searchAllergiesInProvision(provision: provision!, barcode: barcodeValue!)
+        // 2.Load myAllergies
+        let myAllergies:[Allergy] = searchForElementInDB()
+        
+        let allergensDescription = AllergensDescription()
+        
+        
+        let containsAllergens: Bool = allergensDescription.searchAllergiesInProvision(provision: provision!, myAllergies: myAllergies)
         
         if containsAllergens{
             picture.image = UIImage(named: "red-1")
             okMark.image = UIImage(named: "notOk")
+            swipeLeftImg.isHidden = false
+            swipeLabel.isHidden = false
+            
+            swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+            swipeLeft!.direction = .left
+            view.addGestureRecognizer(swipeLeft!)
+            
         }else{
             picture.image = UIImage(named: "green-1")
             okMark.image = UIImage(named: "OK")
+            
+            swipeLeftImg.isHidden = true
+            swipeLabel.isHidden = true
 
         }
         doGradientAnimation()
@@ -59,23 +79,54 @@ class ResultViewController: UIViewController {
         provisionIngredients.text = provision!.ingredients!
     }
     
+    override func viewWillAppear(_ animated: Bool){
+        print("*** IndexViewController")
+
+        if(swipeLeft != nil){
+            doSwipeImgAnimation()
+        }
+    }
+    
+    @objc func handleSwipe(sender: UISwipeGestureRecognizer){
+        if sender.state == .ended{
+            performSegue(withIdentifier: "toAlternatives", sender: self)
+        }
+    }
+    
     func doGradientAnimation(){
         
         print("in animation")
         self.picture.transform = CGAffineTransform(translationX: 0, y: 0)
         
-        UIView.animate(withDuration: 2, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
+        UIView.animate(withDuration: 10, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
             
-            let x = -self.picture.frame.width + self.view.frame.width
-            self.picture.transform = CGAffineTransform(translationX: x, y: 0)
+            let y = self.picture.frame.height - self.view.frame.height
+            self.picture.transform = CGAffineTransform(translationX: 0, y: y)
+        })
+    }
+    
+    func doSwipeImgAnimation(){
+        UIView.animate(withDuration: 1.5, delay:0, options: [.curveLinear, .repeat], animations: {
+            
+            self.swipeLeftImg.transform = CGAffineTransform(translationX: -60, y:0 )
+            self.swipeLeftImg.alpha = 0
+            
+        }, completion: {
+            (value: Bool) in
+            
+            self.swipeLeftImg.alpha = 1
+            self.swipeLeftImg.transform = .identity
         })
     }
     
     @IBAction func showDetails(_ sender: Any) {
             
-            
-       
             if darkView.transform == CGAffineTransform.identity{
+                
+                swipeLeftImg.isHidden = true
+                swipeLabel.isHidden = true
+                swipeLeft?.isEnabled = false
+                
                 UIView.animate(withDuration: 1, animations: {
                     
                     self.okMark.alpha = 0
@@ -97,6 +148,7 @@ class ResultViewController: UIViewController {
                     
                 })
         } else{
+                
             UIView.animate(withDuration: 1, animations: {
                            
                 self.provisionScrollView.transform = .identity
@@ -109,49 +161,14 @@ class ResultViewController: UIViewController {
                 
                 self.okMark.alpha = 1
             })
-        }
-    }
-            
+                swipeLeft?.isEnabled = true
 
-      
-    
-    func searchAllergiesInProvision(provision: Provision, barcode: String) -> Bool{
-        
-        print("searchAllergiesInProvision")
-        
-        
-        // 2.Load myAllergies
-        let myAllergies:[Allergy] = searchForElementInDB()
-        
-        
-        let allergenManager = AllergensDescription()
-        
-        var containsAllergens: Bool = false
-        
-        print(provision.allergens!)
-        containsAllergens = allergenManager.searchForAllergens(ingredients: provision.allergens!, myAllergies: myAllergies)
-        
-        if containsAllergens {
-            print("Allergene gefunden")
-            return true
+                swipeLeftImg.isHidden = false
+                swipeLabel.isHidden = false
         }
-        
-        print(provision.ingredients!)
-        containsAllergens = allergenManager.searchForAllergens(ingredients: provision.ingredients!, myAllergies: myAllergies)
-        
-        if containsAllergens {
-            print("Allergene gefunden")
-            return true
-        }
-        
-        print("keine Allergene")
-        
-        
-        return false
     }
     
     // DB
-    
     // search one element in DB
     func searchForElementInDB() -> [Allergy]{
 
@@ -170,5 +187,17 @@ class ResultViewController: UIViewController {
       
         
       return result
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    if(segue.identifier == "toAlternatives"){
+        
+        // Create a new variable to store the instance of PlayerTableViewController
+        let destinationVC = segue.destination as! AlternativesViewController
+        
+        destinationVC.provision = self.provision
+        
+    }
     }
 }
