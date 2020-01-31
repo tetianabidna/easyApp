@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        
+        // make launch screen stay a little bit longer
+        RunLoop.current.run(until: NSDate(timeIntervalSinceNow: 1) as Date)
         
         return true
     }
-
     
     // MARK: - Core Data stack
 

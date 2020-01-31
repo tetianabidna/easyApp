@@ -21,20 +21,37 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var barcode: String = ""
     var provision: Provision?
     
+    @IBOutlet weak var helpTextView: UITextView!
+   
+    @IBOutlet weak var flashButton: UIButton!
     
-    @IBOutlet weak var scannerLabel: UILabel!
+    var flashIsOn: Bool = false
     
-    /*
-    @property (nonatomic, weak) IBOutlet UIView ;
-
-    - (void)viewDidAppear:(BOOL)animated
-    {
-        [super viewDidAppear:animated];
-
-        [self.view bringSubviewToFront:your_control];
+    @IBAction func flashButtonAction(_ sender: Any) {
+        
+        
+       flashIsOn = !flashIsOn
+        print(flashIsOn)
+        if flashIsOn{
+            turnOnTorch(device: AVCaptureDevice.default(for: .video)!)
+            if #available(iOS 13.0, *) {
+                flashButton.setImage(UIImage(systemName: "bolt.slash"), for: .normal)
+            } else {
+                // Fallback on earlier versions
+            }
+            
+        }else{
+            turnOffTorch(device: AVCaptureDevice.default(for: .video)!)
+            if #available(iOS 13.0, *) {
+                flashButton.setImage(UIImage(systemName: "bolt"), for: .normal)
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+        
     }
- 
- */
+    @IBOutlet weak var buttonBackground: UIViewX!
+    
     @IBAction func promptText(_ sender: Any) {
         let ac = UIAlertController(title: "Barcode eingeben", message: "Barcode eingeben", preferredStyle: .alert)
         ac.addTextField()
@@ -103,6 +120,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
+        
+        //Add Label and Button to camera view
+        
+        self.view.addSubview(helpTextView)
+        self.view.addSubview(buttonBackground)
+        self.view.addSubview(flashButton)
+       
+        
+        
 
         captureSession.startRunning()
     }
@@ -143,6 +169,29 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         dismiss(animated: true)
     }
 
+    func withDeviceLock(on device: AVCaptureDevice, block: (AVCaptureDevice) -> Void) {
+        do {
+            try device.lockForConfiguration()
+            block(device)
+            device.unlockForConfiguration()
+        } catch {
+            // can't acquire lock
+        }
+    }
+    
+    func turnOnTorch(device: AVCaptureDevice) {
+        guard device.hasTorch else { return }
+        withDeviceLock(on: device) {
+            try? $0.setTorchModeOn(level: AVCaptureDevice.maxAvailableTorchLevel)
+        }
+    }
+    
+    func turnOffTorch(device: AVCaptureDevice) {
+        guard device.hasTorch else { return }
+        withDeviceLock(on: device) {
+            $0.torchMode = .off
+        }
+    }
 
     func found(code: String) {
         print(code)
