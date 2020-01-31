@@ -67,7 +67,7 @@ class AllergieEditViewController: UIViewController {
         print("in animation")
         self.gradientView.transform = CGAffineTransform(translationX: 0, y: 0)
         
-        UIView.animate(withDuration: 2, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
+        UIView.animate(withDuration: 10, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
             
             let x = -self.gradientView.frame.width + self.view.frame.width
             self.gradientView.transform = CGAffineTransform(translationX: x, y: 0)

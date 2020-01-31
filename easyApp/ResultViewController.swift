@@ -24,8 +24,8 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var provisionScrollView: UIScrollView!
     @IBOutlet weak var provisionDetails: UIView!
     
-    @IBOutlet weak var provisionIngridients: UITextView!
-    @IBOutlet weak var provisionAllergies: UITextView!
+    @IBOutlet weak var provisionAllergens: UITextView!
+    @IBOutlet weak var provisionIngredients: UITextView!
     
     
     @IBOutlet weak var detailsView: UIView!
@@ -33,6 +33,7 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var darkView: UIViewX!
     
+    @IBOutlet weak var okMark: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,16 +44,19 @@ class ResultViewController: UIViewController {
         
         if containsAllergens{
             picture.image = UIImage(named: "red-1")
+            okMark.image = UIImage(named: "notOk")
         }else{
             picture.image = UIImage(named: "green-1")
+            okMark.image = UIImage(named: "OK")
+
         }
         doGradientAnimation()
         
         provisionName.text = provision!.name
         provisionImg.image = UIImage(named: provision!.picture!)
-        provisionIngridients.text = provision!.ingredients!
+        provisionAllergens.text = provision!.allergens!
         
-        provisionAllergies.text = provision!.allergens!
+        provisionIngredients.text = provision!.ingredients!
     }
     
     func doGradientAnimation(){
@@ -68,9 +72,13 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func showDetails(_ sender: Any) {
+            
+            
        
             if darkView.transform == CGAffineTransform.identity{
                 UIView.animate(withDuration: 1, animations: {
+                    
+                    self.okMark.alpha = 0
                     
                     let screenHeight = self.view.frame.height
                     let screenWidth = self.view.frame.width
@@ -85,21 +93,8 @@ class ResultViewController: UIViewController {
 
                     self.provisionName.transform = CGAffineTransform(translationX: 0, y: self.provisionImg.frame.maxY + 10 - self.provisionName.frame.minY)
 
-                    self.provisionScrollView.transform = CGAffineTransform(translationX: 0, y: self.provisionScrollView.center.y - 500 - self.provisionScrollView.frame.height - self.provisionImg.frame.maxY + 10)
+                    self.provisionScrollView.transform = CGAffineTransform(translationX: 0, y: self.provisionScrollView.center.y - 500 - self.provisionScrollView.frame.height - self.provisionImg.frame.maxY + 20)
                     
-                    /*
-                    self.darkView.transform = CGAffineTransform(scaleX: 30, y: 30)
-                    self.swipeButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
-                    
-                    self.detailsView.transform = CGAffineTransform(translationX: 0, y: -400)
-                    self.detailsView.frame.size.height += 500
-
-                    self.provisionName.transform = CGAffineTransform(translationX: 20, y: 230)
-                    
-                    self.provisionImg.transform = CGAffineTransform(translationX: -50, y: 30).concatenating(CGAffineTransform(scaleX: 3, y: 3))
-
-                    self.provisionScrollView.transform = CGAffineTransform(translationX: 0, y: -250)
-                    */
                 })
         } else{
             UIView.animate(withDuration: 1, animations: {
@@ -111,6 +106,8 @@ class ResultViewController: UIViewController {
                 self.detailsView.transform = .identity
                 self.swipeButton.transform = .identity
                 self.darkView.transform = .identity
+                
+                self.okMark.alpha = 1
             })
         }
     }

@@ -69,7 +69,7 @@ class IndexViewController: UIViewController  {
         print("in animation")
         self.gradientVideo.transform = CGAffineTransform(translationX: 0, y: 0)
         
-        UIView.animate(withDuration: 2, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
+        UIView.animate(withDuration: 10, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
             
             let x = -self.gradientVideo.frame.width + self.view.frame.width
             self.gradientVideo.transform = CGAffineTransform(translationX: x, y: 0)
