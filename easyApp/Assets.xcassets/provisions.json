@@ -1,116 +1,116 @@
 {
     "provisions" : [
         {
-           "name" : "fdh",
-           "barcode" : "abc",
-           "ingredients" : "Zucker, Honig, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
-           "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
-           "category" : "Nüsse",
-           "picture": "grau"
-        },
-        {
-            "name" : "fdh",
-            "barcode" : "4305615543666",
-            "ingredients" : "Zucker, Honig, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
-            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
-            "category" : "Nüsse",
-            "picture": "grau"
-        },
-        {
             "name" : "Nussknacker",
             "barcode" : "4061458021616",
             "ingredients" : "Zucker, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
-            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
-            "category" : "Süßwaren",
-            "picture": "grau"
-        },
-        {
-            "name" : "Cashewkerne",
-            "barcode" : "40893532",
-            "ingredients" : "Cashewkerne",
-            "allergens" : "Schalenfrüchte, Erdnüsse",
-            "category" : "Süßwaren",
-            "picture": "icons8-list-50"
-        },
-        {
-            "name" : "Corny Milch Classic   ",
+            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüssen",
+            "category" : "Schokolade",
+            "picture": "Nussknacker"
+          },
+          {
+            "name" : " Joghurt mild Schokoballs",
+            "barcode" : "4388844174658",
+            "ingredients" : " JOGHURT mild, Schokolade-Getreideballszubereitung (Wasser, Zucker, 18% Schokolade-Getreideballs (pflanzliches Fett (Palm), Bitterschokoladenkuvertüre, WEIZENEXTRUDAT (WEIZENMEHL, Zucker, WEIZENMALZ, WEIZENSTÄRKE, Salz, Kakaobutter, natürliches Aroma) mageres Kakaopulver, natürliches Aroma), modifizierte Stärke, Verdickungsmittel (Johannisbrotkernmehl, Xanthan), Säureregulator: Citronensäure), Zucker.",
+            "allergens" : "",
+            "category" : "Joghurt",
+            "picture": "Joghurt mild Schokoballs"
+          },
+          {
+            "name" : "Andechser Bio-Ziegen-Joghurt",
+            "barcode" : "4385634174658",
+            "ingredients" : "ZIEGENMILCH¹ mit natürlichem Fettgehalt, mindestens 3,2% Fett ¹-aus kontrolliert ökologischem Landbau",
+            "allergens" : "Enthält: Milch und Milcherzeugnisse (einschließlich Lactose)",
+            "category" : "Joghurt",
+            "picture": "Andechser Natur Bio-Ziegen-Jogurt"
+          },
+          {
+            "name" : "Landliebe Fettarmer Joghurt mild",
+            "barcode" : "4002575311105",
+            "ingredients" : "",
+            "allergens" : "Milch und Milcherzeugnisse (einschließlich Lactose)",
+            "category" : "Joghurt",
+            "picture": "Landliebe Fettarmer Joghurt mild"
+          },
+          {
+            "name" : "Mascarpone Joghurt Erdbeere",
+            "barcode" : "4008452036635",
+            "ingredients" : "JOGHURT, Erdbeeren*, Zucker, Wasser, 3% Mascarpone (SAHNE, Zitronensaftkonzentrat), Erdbeersaft* aus Erdbeersaftkonzentrat, Stärke, Verdickungsmittel Pektine, Säuerungsmittel Citronensäure, Farbstoff Lycopine aus roten Tomaten, natürliches Aroma. *12% Frucht im Endprodukt.",
+            "allergens" : "Milch und Milcherzeugnisse (einschließlich Lactose)",
+            "category" : "Joghurt",
+            "picture": "Weihenstephan Mascarpone Joghurt Erdbeer"
+          },
+          {
+            "name" : "Müller Joghurt Müsli White Berry",
+            "barcode" : "42304616",
+            "ingredients" : "Joghurt aus pasteurisierter MILCH, Knuspermüsli-Mischung (HAFERFLOCKEN, Zucker, Mais, Kokosraspeln, Kakaobutter, Glukose-Fruktose-Sirup, Sonnenblumenöl. VOLLMILCHPULVER, 1,7% Himbeeren, Reismehl, SÜSSMOLKENPULVER, Honig, GERSTENMLALZEXTRAKT, WEIZENGLUTEN, Speisesalz, GERSTENMALZ, WEIZENMALZ, KARAMELLZUCKERSIRUP, VERDICKUNGSMITTEL E401, Emulgator Lecithine, Aroma), KANN SPUREN VON ERDNÜSSEN, EI, SOJA UND NÜSSEN/SCHALENFRÜCHTEN ENTHALTEN",
+            "allergens" : " Enthält: Milch und Milcherzeugnisse (einschließlich Lactose). Gerste und Gerstenerzeugnisse (glutenhaltiges Getreide). Hafer und Hafererzeugnisse (glutenhaltiges Getreide). Weizen und Weizenerzeugnisse (glutenhaltiges Getreide). Kann enthalten: Eier und Eierzeugnisse. Nüsse und Nusserzeugnisse. Erdnüsse und Erdnusserzeugnisse. Soja und Sojaerzeugnisse",
+            "category" : "Joghurt",
+            "picture": "Mueller Joghurt mit der Ecke Muesli White Berry"
+          },
+          {
+            "name" : "Joghurt Erdbeere laktosefrei",
+            "barcode" : "4040600978022",
+            "ingredients" : "JOGHURT, Erdbeeren**, Zucker, Erdbeersaft** aus Erdbeersaftkonzentrat, modifizierte Stärke, färbendes Pflanzenkonzentrat (Rote Bete), natürliches Aroma, Verdickungsmittel Pektine, Säureregulaor Natriumcitrate, Laktase. **Frucht im Endprodukt: 12%",
+            "allergens" : "Enthält: Milch und Milcherzeugnisse (einschließlich Lactose)",
+            "category" : "Joghurt",
+            "picture": "Landliebe Joghurt auf Frucht Erdbeere laktosefrei"
+          },
+          {
+            "name" : "REWE Frei von Joghurt mild",
+            "barcode" : "4388844126800",
+            "ingredients" : "JOGHURT mild, Laktase",
+            "allergens" : "",
+            "category" : "Joghurt",
+            "picture": "REWE Frei von Joghurt mild"
+          },
+          {
+            "name" : "MinusL Joghurt Vanille",
+            "barcode" : "4062800002024",
+            "ingredients" : " JOGHURT mild, Glukose-Fruktose-Sirup, Zucker, modifizierte Stärke, Laktase, Vanillepulver, natürliches Vanillearoma, Säuerungsmittel: Citronensäure; Karamellzuckersirup",
+            "allergens" : "Milchbestandteile: Milcheiweiß und Milchzucker*Enthält: Milch und Milcherzeugnisse (einschließlich Lactose)",
+            "category" : "Joghurt",
+            "picture": "MinusL Joghurt Vanille"
+          },
+          {
+            "name" : "Milka Tafel Erdbeer",
+            "barcode" : "7622300291785",
+            "ingredients" : "Zucker, Palmöl, Süßmolkenpulver (aus MILCH), Kakaobutter, MAGERMILCHPULVER, Kakaomasse, BUTTERREINFETT, Emulgatoren (SOJALECITHIN, Sonnenblumenlecithin), Traubenzucker, Aromen, HASELNÜSSE, getrocknete Erdbeeren (0,2 %), Maltodextrin, Säuerungsmittel (Citronensäure). KANN ANDERE NÜSSE UND WEIZEN ENTHALTEN.",
+            "allergens" : "MILCH, MAGERMILCHPULVER, BUTTERREINFETT, SOJALECITHIN, HASELNÜSSE.Enthält: Milch und Milcherzeugnisse (einschließlich Lactose). Soja und Sojaerzeugnisse. Haselnuss und Haselnusserzeugnisse. Kann enthalten: Nüsse und Nusserzeugnisse. Weizen und Weizenerzeugnisse (glutenhaltiges Getreide). Glutenhaltiges Getreide und glutenhaltige Getreideerzeugnisse",
+            "category" : "Schokolade",
+            "picture": "Milka Tafel Erdbeer"
+          },
+          {
+            "name" : "Kinder Schokolade",
+            "barcode" : "40084329",
+            "ingredients" : "VOLLMILCHSCHOKOLADE 40 % (Zucker, VOLLMILCHPULVER,Kakaobutter, Kakaomasse, Emulgator Lecithine (SOJA), Vanillin),Zucker, MAGERMILCHPULVER (18 %), Palmöl, BUTTERREINFETT,Emulgator Lecithine (SOJA), Vanillin.Gesamtmilchbestandteile im Produkt 33 %.Gesamtkakaobestandteile im Produkt 13 %.",
+            "allergens" : "Milch und Milcherzeugnisse (einschließlich Lactose). Soja und Sojaerzeugnisse.",
+            "category" : "Schokolade",
+            "picture": "Kinder Schokolade"
+          },
+           {
+            "name" : "Milka Tafel Lu Kekse",
+            "barcode" : "7622210007469",
+            "ingredients" : "Zucker, WEIZENMEHL, Kakaobutter, MAGERMILCHPULVER, Kakaomasse, Süßmolkenpulver (aus MILCH), BUTTERREINFETT, Palmöl, BUTTER, Emulgatoren (SOJALECITHIN, E476), Glukosesirup, VOLLMILCHPULVER, Speisesalz, Aromen, Backtriebmittel (Dinatriumdiphosphat, Natriumhydrogencarbonat, Ammoniumhydrogencarbonat), GERSTENMALZEXTRAKT, WEIZENSTÄRKE, Hefeextrakt. KANN EI ENTHALTEN.",
+            "allergens" : " WEIZENMEHL, MAGERMILCHPULVER, MILCH, BUTTERREINFETT, BUTTER, SOJALECITHIN, VOLLMILCHPULVER, GERSTENMALZEXTRAKT, WEIZENSTÄRKE.Enthält: Weizen und Weizenerzeugnisse (glutenhaltiges Getreide). Milch und Milcherzeugnisse (einschließlich Lactose). Soja und Sojaerzeugnisse. Gerste und Gerstenerzeugnisse (glutenhaltiges Getreide). Glutenhaltiges Getreide und glutenhaltige Getreideerzeugnisse. Kann enthalten: Eier und Eierzeugnisse.",
+            "category" : "Schokolade",
+            "picture": "Milka Tafel Lu Kekse"
+          },
+          {
+            "name" : "Beste Wahl Zartbitter Schokolade",
+            "barcode" : "4388844106024",
+            "ingredients" : "Zucker, Kakaomasse, Kakaobutter , Emulgator SOJALECITHINE, natürliches Aroma.",
+            "allergens" : "Soja und Sojaerzeugnisse",
+            "category" : "Schokolade",
+            "picture": "REWE Beste Wahl Zartbitter Schokolade"
+          },
+          {
+            "name" : "Corny Milch Classic",
             "barcode" : "4011800562212",
-            "ingredients" : "Kakaohaltige Getreidecrispies (Reismehl 7%, WEIZENMEHL 3%, fettarmes Kakaopulver, VOLLMILCHPULVER, Zucker, Maismehl 1%, Salz), pflanzliches Fett (Kokosnuss, Palme), Cornflakes (Mais 14%, Zucker, Salz, GERSTENMALZ), Glukosesirup, Glukose-Fruktose-Sirup, Oligofruktose, Traubenzucker, geröstete VOLLKORNHAFERFLOCKEN 5%, Honig 5%, Zucker, VOLLMILCHPULVER 3%, MAGERMILCHPULVER 3%, Stabilisator Glycerin, Calciumcarbonat, Emulgator Sonnenblumen-Lecithine, Karamellzuckersirup, Salz, natürliche Aromen",
-            "allergens" : "Glutenhaltiges Getreide, Getreideerzeugnisse, Milch, Milcherzeugnisse (einschließlich Lactose). Nüsse und Nusserzeugnisse. Erdnüsse und Erdnusserzeugnisse",
-            "category" : "Süßwaren",
-            "picture": "logo"
-        },
-        {
-            "name" : "Nussknacker",
-            "barcode" : "4061458021616",
-            "ingredients" : "Zucker, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
-            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
-            "category" : "Süßwaren",
-            "picture": "grau"
-        },
-        {
-            "name" : "Cashewkerne",
-            "barcode" : "40893532",
-            "ingredients" : "Cashewkerne",
-            "allergens" : "Schalenfrüchte, Erdnüsse",
-            "category" : "Süßwaren",
-            "picture": "icons8-list-50"
-        },
-        {
-            "name" : "Corny Milch Classic   ",
-            "barcode" : "4011800562212",
-            "ingredients" : "Kakaohaltige Getreidecrispies (Reismehl 7%, WEIZENMEHL 3%, fettarmes Kakaopulver, VOLLMILCHPULVER, Zucker, Maismehl 1%, Salz), pflanzliches Fett (Kokosnuss, Palme), Cornflakes (Mais 14%, Zucker, Salz, GERSTENMALZ), Glukosesirup, Glukose-Fruktose-Sirup, Oligofruktose, Traubenzucker, geröstete VOLLKORNHAFERFLOCKEN 5%, Honig 5%, Zucker, VOLLMILCHPULVER 3%, MAGERMILCHPULVER 3%, Stabilisator Glycerin, Calciumcarbonat, Emulgator Sonnenblumen-Lecithine, Karamellzuckersirup, Salz, natürliche Aromen",
-            "allergens" : "Glutenhaltiges Getreide, Getreideerzeugnisse, Milch, Milcherzeugnisse (einschließlich Lactose). Nüsse und Nusserzeugnisse. Erdnüsse und Erdnusserzeugnisse",
-            "category" : "Süßwaren",
-            "picture": "logo"
-        },
-        {
-            "name" : "Nussknacker",
-            "barcode" : "4061458021616",
-            "ingredients" : "Zucker, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
-            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
-            "category" : "Süßwaren",
-            "picture": "grau"
-        },
-        {
-            "name" : "Cashewkerne",
-            "barcode" : "40893532",
-            "ingredients" : "Cashewkerne",
-            "allergens" : "Schalenfrüchte, Erdnüsse",
-            "category" : "Süßwaren",
-            "picture": "icons8-list-50"
-        },
-        {
-            "name" : "Corny Milch Classic   ",
-            "barcode" : "4011800562212",
-            "ingredients" : "Kakaohaltige Getreidecrispies (Reismehl 7%, WEIZENMEHL 3%, fettarmes Kakaopulver, VOLLMILCHPULVER, Zucker, Maismehl 1%, Salz), pflanzliches Fett (Kokosnuss, Palme), Cornflakes (Mais 14%, Zucker, Salz, GERSTENMALZ), Glukosesirup, Glukose-Fruktose-Sirup, Oligofruktose, Traubenzucker, geröstete VOLLKORNHAFERFLOCKEN 5%, Honig 5%, Zucker, VOLLMILCHPULVER 3%, MAGERMILCHPULVER 3%, Stabilisator Glycerin, Calciumcarbonat, Emulgator Sonnenblumen-Lecithine, Karamellzuckersirup, Salz, natürliche Aromen",
-            "allergens" : "Glutenhaltiges Getreide, Getreideerzeugnisse, Milch, Milcherzeugnisse (einschließlich Lactose). Nüsse und Nusserzeugnisse. Erdnüsse und Erdnusserzeugnisse",
-            "category" : "Süßwaren",
-            "picture": "logo"
-        },
-        {
-            "name" : "Nussknacker",
-            "barcode" : "4061458021616",
-            "ingredients" : "Zucker, Kakaomasse, Haselnüsse, Kakaobutter, Butterreinfett, Emulgator Lecithine (Soja), Vanilleextrakt",
-            "allergens" : "Milch, Schalenfrüchte, Soja, Schalenfrüchte, Erdnüsse, Nüsse",
-            "category" : "Süßwaren",
-            "picture": "grau"
-        },
-        {
-            "name" : "Cashewkerne",
-            "barcode" : "40893532",
-            "ingredients" : "Cashewkerne",
-            "allergens" : "Schalenfrüchte, Erdnüsse",
-            "category" : "Süßwaren",
-            "picture": "icons8-list-50"
-        },
-        {
-            "name" : "Corny Milch Classic   ",
-            "barcode" : "4011800562212",
-            "ingredients" : "Kakaohaltige Getreidecrispies (Reismehl 7%, WEIZENMEHL 3%, fettarmes Kakaopulver, VOLLMILCHPULVER, Zucker, Maismehl 1%, Salz), pflanzliches Fett (Kokosnuss, Palme), Cornflakes (Mais 14%, Zucker, Salz, GERSTENMALZ), Glukosesirup, Glukose-Fruktose-Sirup, Oligofruktose, Traubenzucker, geröstete VOLLKORNHAFERFLOCKEN 5%, Honig 5%, Zucker, VOLLMILCHPULVER 3%, MAGERMILCHPULVER 3%, Stabilisator Glycerin, Calciumcarbonat, Emulgator Sonnenblumen-Lecithine, Karamellzuckersirup, Salz, natürliche Aromen",
-            "allergens" : "Glutenhaltiges Getreide, Getreideerzeugnisse, Milch, Milcherzeugnisse (einschließlich Lactose). Nüsse und Nusserzeugnisse. Erdnüsse und Erdnusserzeugnisse",
-            "category" : "Süßwaren",
-            "picture": "logo"
-        }
+            "ingredients" : "Kakaohaltige Getreidecrispies (Reismehl 7%, WEIZENMEHL 3%, fettarmes Kakaopulver, VOLLMILCHPULVER, Zucker, Maismehl 1%, Salz), pflanzliches Fett (Kokosnuss, Palme), Cornflakes (Mais 14%, Zucker, Salz, GERSTENMALZ), Glukosesirup, Glukose-Fruktose-Sirup, Oligofruktose, Traubenzucker, geröstete VOLLKORNHAFERFLOCKEN 5%, Honig 5%, Zucker, VOLLMILCHPULVER 3%, MAGERMILCHPULVER 3%, Stabilisator Glycerin, Calciumcarbonat, Emulgator Sonnenblumen-Lecithine, Karamellzuckersirup, Salz, natürliche Aromen.",
+            "allergens" : " Glutenhaltiges Getreide und glutenhaltige Getreideerzeugnisse. Milch und Milcherzeugnisse (einschließlich Lactose). Kann enthalten: Nüsse und Nusserzeugnisse. Erdnüsse und Erdnusserzeugnisse.",
+            "category" : "Frühstücksriegel",
+            "picture": "Corny Milch Classic"
+          }
   ]
 }

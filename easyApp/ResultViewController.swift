@@ -15,6 +15,7 @@ class ResultViewController: UIViewController {
     
     var barcodeValue: String?
     var provision: Provision?
+    var isRed = false;
 
     @IBOutlet weak var picture: UIImageView!
     
@@ -53,8 +54,11 @@ class ResultViewController: UIViewController {
         let containsAllergens: Bool = allergensDescription.searchAllergiesInProvision(provision: provision!, myAllergies: myAllergies)
         
         if containsAllergens{
-            picture.image = UIImage(named: "red-1")
+            picture.image = UIImage(named: "red")
             okMark.image = UIImage(named: "notOk")
+            
+            isRed = true
+            
             swipeLeftImg.isHidden = false
             swipeLabel.isHidden = false
             
@@ -63,24 +67,26 @@ class ResultViewController: UIViewController {
             view.addGestureRecognizer(swipeLeft!)
             
         }else{
-            picture.image = UIImage(named: "green-1")
+            picture.image = UIImage(named: "green")
             okMark.image = UIImage(named: "OK")
             
             swipeLeftImg.isHidden = true
             swipeLabel.isHidden = true
 
         }
-        doGradientAnimation()
+        
+        //doGradientAnimation()
         
         provisionName.text = provision!.name
         provisionImg.image = UIImage(named: provision!.picture!)
         provisionAllergens.text = provision!.allergens!
-        
         provisionIngredients.text = provision!.ingredients!
     }
     
     override func viewWillAppear(_ animated: Bool){
         print("*** IndexViewController")
+        
+       
 
         if(swipeLeft != nil){
             doSwipeImgAnimation()
@@ -93,6 +99,7 @@ class ResultViewController: UIViewController {
         }
     }
     
+    /*
     func doGradientAnimation(){
         
         print("in animation")
@@ -104,6 +111,7 @@ class ResultViewController: UIViewController {
             self.picture.transform = CGAffineTransform(translationX: 0, y: y)
         })
     }
+    */
     
     func doSwipeImgAnimation(){
         UIView.animate(withDuration: 1.5, delay:0, options: [.curveLinear, .repeat], animations: {
@@ -140,11 +148,14 @@ class ResultViewController: UIViewController {
                    self.detailsView.transform = CGAffineTransform(translationX: 0, y: -(screenHeight - self.detailsView.frame.height - self.navigationController!.navigationBar.frame.height)) // 65 is the navigation bar
                    self.detailsView.frame.size.height += 500
                     
-                    self.provisionImg.transform = CGAffineTransform(scaleX: 3, y: 3).concatenating(CGAffineTransform(translationX: -(screenWidth/2.0 - self.provisionImg.frame.width/2.0 - 10), y: self.provisionImg.frame.height + self.navigationController!.navigationBar.frame.height + self.swipeButton.frame.height + 10 - self.provisionImg.center.y))
+                    self.provisionImg.transform = CGAffineTransform(scaleX: 2.1, y: 2.1).concatenating(CGAffineTransform(translationX: -(screenWidth/2.0 - self.provisionImg.frame.width/2.0 - 10), y: self.provisionImg.frame.height + self.navigationController!.navigationBar.frame.height + self.swipeButton.frame.height + 10 - self.provisionImg.center.y))
 
                     self.provisionName.transform = CGAffineTransform(translationX: 0, y: self.provisionImg.frame.maxY + 10 - self.provisionName.frame.minY)
-
-                    self.provisionScrollView.transform = CGAffineTransform(translationX: 0, y: self.provisionScrollView.center.y - 500 - self.provisionScrollView.frame.height - self.provisionImg.frame.maxY + 20)
+                    
+                    
+                    self.provisionScrollView.transform = CGAffineTransform(translationX: 0, y: self.provisionScrollView.center.y - 500 - self.provisionScrollView.frame.height - self.provisionImg.frame.maxY + 30)
+                    //self.provisionScrollView.transform = CGAffineTransform(translationX: 0, y: self.provisionScrollView.center.y - 500 - self.provisionScrollView.frame.height - self.provisionImg.frame.maxY + self.provisionName.frame.height)
+                    
                     
                 })
         } else{
@@ -160,11 +171,17 @@ class ResultViewController: UIViewController {
                 self.darkView.transform = .identity
                 
                 self.okMark.alpha = 1
+                
+                
+                
             })
-                swipeLeft?.isEnabled = true
-
-                swipeLeftImg.isHidden = false
-                swipeLabel.isHidden = false
+                
+                if(isRed){
+                    swipeLeft?.isEnabled = true
+                    swipeLeftImg.isHidden = false
+                    swipeLabel.isHidden = false
+                }
+                
         }
     }
     

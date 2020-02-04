@@ -97,11 +97,13 @@ class AlternativesViewController: UIViewController {
         
         let provisionImg = UIImageView()
         provisionImg.image = UIImage(named: provision.picture!)
+        provisionImg.contentMode = .scaleAspectFit
         
         let provisionName = UILabel()
         provisionName.text = provision.name
         provisionName.font = UIFont(name:"Futura", size: 20.0)
         provisionName.textColor = UIColor.white
+        provisionName.adjustsFontSizeToFitWidth = true
         
         alternativeView.frame = CGRect(x: startX, y: startY, width: alternativeViewWidth! , height: alternativeViewWidth! + 50)
         
@@ -130,7 +132,9 @@ class AlternativesViewController: UIViewController {
         
         let verticalLabelConstraint = NSLayoutConstraint(item: provisionName, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: alternativeView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
         
-        alternativeView.addConstraints([topLabelConstraint, verticalLabelConstraint])
+        let widthLabelConstraint = NSLayoutConstraint(item: provisionName, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: alternativeView.frame.size.width - 20)
+        
+        alternativeView.addConstraints([topLabelConstraint,widthLabelConstraint, verticalLabelConstraint])
         
         self.mainView.addSubview(alternativeView)
         

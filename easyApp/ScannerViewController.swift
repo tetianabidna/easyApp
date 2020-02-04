@@ -77,7 +77,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         context = appDelegate?.persistentContainer.viewContext
         
     
-//ProvisionsManager(context: context!)
+ProvisionsManager(context: context!)
     
     
         view.backgroundColor = UIColor.black
@@ -204,7 +204,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         if(self.provision == nil){
             
             
-            let warningAlert = UIAlertController(title: "Warning", message: "Not found", preferredStyle: .alert)
+            let warningAlert = UIAlertController(title: "", message: "Not found", preferredStyle: .alert)
             warningAlert.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action:UIAlertAction!) in
                 print("ok")
                 self.captureSession.stopRunning()

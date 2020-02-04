@@ -40,6 +40,7 @@ class IndexViewController: UIViewController  {
    override func viewDidLoad() {
          super.viewDidLoad()
     
+    
     context = appDelegate?.persistentContainer.viewContext
     
     //deleteAllFromTable()
@@ -69,7 +70,7 @@ class IndexViewController: UIViewController  {
         print("in animation")
         self.gradientVideo.transform = CGAffineTransform(translationX: 0, y: 0)
         
-        UIView.animate(withDuration: 10, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
+        UIView.animate(withDuration: 8, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
             
             let y = self.gradientVideo.frame.height - self.view.frame.height
             self.gradientVideo.transform = CGAffineTransform(translationX: 0, y: y)
@@ -248,13 +249,31 @@ extension IndexViewController: UIPickerViewDataSource{
 
 extension IndexViewController: UIPickerViewDelegate{
     
+    /*
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         return pickerAllergiesArray![row].allergyName
     }
-    
+    */
+    /*
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: pickerAllergiesArray![row].allergyName!, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        
+        return NSAttributedString(string: pickerAllergiesArray![row].allergyName!, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont(name: "Futura", size: 40)])
+    }
+    */
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+      let label = (view as? UILabel) ?? UILabel()
+
+      label.textColor = .white
+      label.textAlignment = .center
+      label.font = UIFont(name: "Futura", size: 30)
+
+      // where data is an Array of String
+      label.text = pickerAllergiesArray![row].allergyName!
+       
+        
+
+      return label
     }
 }
 
@@ -292,6 +311,7 @@ extension IndexViewController: RemoveModelDelegate{
         }, completion: {
             (value: Bool) in
             
+            currentCell.allergieName.center.x -= currentCell.removeButton.center.x - 80
             currentCell.allergieName.alpha = 1
             
             let currentModel = currentCell.model!
