@@ -13,9 +13,9 @@ class AlternativesViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     var context: NSManagedObjectContext?
+    var cdFunctions: CoreDataFunctions!
     
     var provision: Provision!
-    
     var alternativeViewWidth: CGFloat?
     
     @IBOutlet weak var mainView: UIView!
@@ -25,27 +25,38 @@ class AlternativesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        context = appDelegate?.persistentContainer.viewContext
+        self.cdFunctions = CoreDataFunctions(context: context!)
+        
         doGradientAnimation()
         
-        context = appDelegate?.persistentContainer.viewContext
-        
         self.alternativeViewWidth = (self.view.frame.width - 60) / 2.0
-
-        //provision = searchForElementInDB()
-        
-        //addAlternativeToView(provision: provision, startX: 20.0, startY: 20.0)
         
         findAlternatives()
     }
     
     func findAlternatives(){
+    
+        let provisionsWithSameCategory = self.cdFunctions.searchForProvisionsInCategory( category: provision.category!)
+        let myAllergies:[Allergy] = self.cdFunctions.loadChosenAllergies()
+        var alternatives = [Provision]()
         
-        var provisionsSameCategory = searchForElementsInDB( category: provision.category!)
+        let allergensManager = AllergensManager()
         
-        // 2.Load myAllergies
-        let myAllergies:[Allergy] = searchForElementInDB()
+        // search for alternatives
+        for provision in provisionsWithSameCategory!{
+            
+            let containsAllergens = allergensManager.searchAllergiesInProvision(provision: provision, myAllergies: myAllergies)
+            
+            if(!containsAllergens){
+                alternatives.append(provision)
+            }
+        }
         
-        let allergensDescription = AllergensDescription()
+        createAlternativeSubViews(for: alternatives)
+    }
+    
+    func createAlternativeSubViews(for alternatives: [Provision]){
         
         let startXLeft: CGFloat = 20
         let startXRight: CGFloat = startXLeft + alternativeViewWidth! + 20
@@ -54,22 +65,8 @@ class AlternativesViewController: UIViewController {
         
         var isLastAlternative = false
         
-        var alternatives = [Provision]()
-        
-        
-        // search for alternatives
-        for provision in provisionsSameCategory!{
-            
-            let containsAllergens = allergensDescription.searchAllergiesInProvision(provision: provision, myAllergies: myAllergies)
-            
-            if(!containsAllergens){
-                alternatives.append(provision)
-            }
-        }
-        
-        // create alternative views
-        
         if(alternatives.count != 0){
+            
             noAlternativeText.isHidden = true
             
             let lastAlternativeIndex = alternatives.count - 1
@@ -87,6 +84,7 @@ class AlternativesViewController: UIViewController {
                 }
             }
         }else{
+            
             noAlternativeText.isHidden = false
         }
     }
@@ -139,7 +137,7 @@ class AlternativesViewController: UIViewController {
         self.mainView.addSubview(alternativeView)
         
         if(isLastAlternative){
-            let bottomConstraint = NSLayoutConstraint(item: mainView , attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: alternativeView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 10)
+            let bottomConstraint = NSLayoutConstraint(item: mainView as Any , attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: alternativeView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 10)
             
             mainView.addConstraint(bottomConstraint)
         }
@@ -154,57 +152,5 @@ class AlternativesViewController: UIViewController {
             let y = self.gradientView.frame.height - self.view.frame.height
             self.gradientView.transform = CGAffineTransform(translationX: 0, y: y)
         })
-    }
-    
-    // DB
-      // search one element in DB
-      func searchForElementsInDB(category: String) -> [Provision]?{
-    
-          var fetchedResults: [Provision]?
-         
-          
-          do {
-              let fetchRequest : NSFetchRequest<Provision> = Provision.fetchRequest()
-              fetchRequest.predicate = NSPredicate(format: "category == %@", category)
-              
-              fetchedResults = try context!.fetch(fetchRequest)
-              
-          }
-          catch {
-              print ("fetch task failed", error)
-          }
-          
-          
-          return fetchedResults
-      }
-    
-    // search one element in DB
-    func searchForElementInDB() -> [Allergy]{
-
-      var result: [Allergy] = [Allergy]()
-      
-      let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Allergy")
-      
-      let allergies = try! context!.fetch(request) as? [Allergy]
-      
-      allergies!.forEach({
-           if($0.isChosen){
-              
-              result.append($0)
-           }
-       })
-      
-        
-      return result
-    }
-    
-    func searchForElementInDB() -> Provision{
-
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Provision")
-      
-        let allergies = try! context!.fetch(request) as? [Provision]
-       
-    
-        return (allergies?.first)!
     }
 }

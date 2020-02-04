@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G87" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Allergies" representedClassName=".Allergies" syncable="YES" codeGenerationType="category">
-        <attribute name="editable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="isChosen" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-    </entity>
     <entity name="Allergy" representedClassName=".Allergy" syncable="YES">
         <attribute name="allergyName" optional="YES" attributeType="String"/>
         <attribute name="isChosen" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -19,7 +14,6 @@
         <attribute name="picture" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES"/>
     </entity>
     <elements>
-        <element name="Allergies" positionX="-63" positionY="0" width="128" height="88"/>
         <element name="Allergy" positionX="-28.25" positionY="-218.3203125" width="128" height="88"/>
         <element name="Provision" positionX="204.4375" positionY="-17.24609375" width="128" height="133"/>
     </elements>

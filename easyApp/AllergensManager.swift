@@ -9,7 +9,7 @@
 import Foundation
 
 
-class AllergensDescription{
+class AllergensManager{
     
     var descriptonDictionary = [
         "gluten": ["gluten","weizen", "roggen", "gerste", "hafer", "dinkel" ],
@@ -49,27 +49,19 @@ class AllergensDescription{
     
     func searchAllergiesInProvision(provision: Provision, myAllergies:[Allergy]) -> Bool{
         
-        //print("searchAllergiesInProvision")
-        
         var containsAllergens: Bool = false
         
-        //print(provision.allergens!)
         containsAllergens = searchForAllergens(ingredients: provision.allergens!, myAllergies: myAllergies)
         
         if containsAllergens {
-        //    print("Allergene gefunden")
             return true
         }
         
-        //print(provision.ingredients!)
         containsAllergens = searchForAllergens(ingredients: provision.ingredients!, myAllergies: myAllergies)
         
         if containsAllergens {
-        //    print("Allergene gefunden")
             return true
         }
-        
-        //print("keine Allergene")
         
         
         return false

@@ -443,7 +443,7 @@
                     <navigationItem key="navigationItem" title="Scanner" id="xxJ-QD-j5N">
                         <barButtonItem key="leftBarButtonItem" systemItem="compose" id="KKu-K5-rWQ">
                             <connections>
-                                <action selector="promptText:" destination="mr1-c3-PQc" id="ciB-7n-vyY"/>
+                                <action selector="promptTextAlert:" destination="mr1-c3-PQc" id="ciB-7n-vyY"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="icons8-list-50-2" id="vXx-VP-RUl">
@@ -484,7 +484,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ND-Gu-E7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="-510.49475262368821"/>
+            <point key="canvasLocation" x="1764" y="-472"/>
         </scene>
         <!--Intoleranzen-->
         <scene sceneID="13N-op-woG">
@@ -498,10 +498,10 @@
                                 <rect key="frame" x="0.0" y="-880" width="375" height="1547"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YeE-S6-jWC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YeE-S6-jWC">
                                 <rect key="frame" x="0.0" y="361" width="375" height="286"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="allergies_cell" rowHeight="68" id="dsa-kx-X3e" customClass="MyAllergiesTableViewCell" customModule="easyApp" customModuleProvider="target">
@@ -511,8 +511,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laktose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAH-m6-102">
-                                                    <rect key="frame" x="21" y="20" width="57.5" height="28"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laktose" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AAH-m6-102">
+                                                    <rect key="frame" x="21" y="20" width="290" height="28"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -534,7 +534,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="AAH-m6-102" secondAttribute="bottom" constant="9" id="a8w-Do-GtH"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="qwd-YE-ExO" secondAttribute="trailing" constant="6" id="b1c-Wd-pTF"/>
                                                 <constraint firstItem="AAH-m6-102" firstAttribute="leading" secondItem="8RO-pI-9Il" secondAttribute="leadingMargin" constant="6" id="dUK-Fo-FG6"/>
-                                                <constraint firstItem="qwd-YE-ExO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AAH-m6-102" secondAttribute="trailing" constant="10" id="heA-NY-RRg"/>
+                                                <constraint firstItem="qwd-YE-ExO" firstAttribute="leading" secondItem="AAH-m6-102" secondAttribute="trailing" constant="10" id="heA-NY-RRg"/>
                                                 <constraint firstItem="qwd-YE-ExO" firstAttribute="bottom" secondItem="AAH-m6-102" secondAttribute="bottom" id="lqX-fK-3Ho"/>
                                                 <constraint firstItem="AAH-m6-102" firstAttribute="top" secondItem="8RO-pI-9Il" secondAttribute="top" constant="20" id="nom-OT-K0M"/>
                                             </constraints>
@@ -594,10 +594,10 @@
             </objects>
             <point key="canvasLocation" x="3728.8000000000002" y="-806.44677661169419"/>
         </scene>
-        <!--hallo-->
+        <!--EditController-->
         <scene sceneID="hZX-oD-0hQ">
             <objects>
-                <viewController storyboardIdentifier="test" title="hallo" id="ar7-Lw-tgV" customClass="AllergieEditViewController" customModule="easyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="test" title="hallo" id="ar7-Lw-tgV" userLabel="EditController" customClass="AllergieEditViewController" customModule="easyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pJJ-kn-57P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -626,15 +626,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELQ-Fq-qTb">
-                                                    <rect key="frame" x="21" y="32" width="60.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AName" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ELQ-Fq-qTb">
+                                                    <rect key="frame" x="21" y="32" width="223" height="21"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjW-vP-Sha">
-                                                    <rect key="frame" x="293" y="20" width="33" height="33"/>
+                                                    <rect key="frame" x="317" y="20" width="33" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="33" id="NxV-Ww-clA"/>
                                                         <constraint firstAttribute="height" constant="33" id="yLF-ib-Ocy"/>
@@ -645,7 +645,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sor-Y7-WYd">
-                                                    <rect key="frame" x="210" y="20" width="33" height="33"/>
+                                                    <rect key="frame" x="254" y="20" width="33" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="33" id="BHb-Lc-feM"/>
                                                         <constraint firstAttribute="height" constant="33" id="WPw-ED-LrB"/>
@@ -658,23 +658,23 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ELQ-Fq-qTb" firstAttribute="top" secondItem="ZIa-lO-63Q" secondAttribute="topMargin" constant="21" id="2Hw-Dx-YZ8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qjW-vP-Sha" secondAttribute="trailing" constant="10" id="FWw-gf-7QS"/>
                                                 <constraint firstItem="ELQ-Fq-qTb" firstAttribute="leading" secondItem="ZIa-lO-63Q" secondAttribute="leadingMargin" constant="6" id="Iu4-Mq-0R6"/>
-                                                <constraint firstItem="qjW-vP-Sha" firstAttribute="leading" secondItem="Sor-Y7-WYd" secondAttribute="trailing" constant="50" id="RdB-SK-dBp"/>
+                                                <constraint firstItem="Sor-Y7-WYd" firstAttribute="leading" secondItem="ELQ-Fq-qTb" secondAttribute="trailing" constant="10" id="NrV-h3-qxM"/>
+                                                <constraint firstItem="qjW-vP-Sha" firstAttribute="leading" secondItem="Sor-Y7-WYd" secondAttribute="trailing" constant="30" id="RdB-SK-dBp"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ELQ-Fq-qTb" secondAttribute="bottom" constant="21" id="Ue0-IP-vyC"/>
                                                 <constraint firstItem="Sor-Y7-WYd" firstAttribute="bottom" secondItem="ELQ-Fq-qTb" secondAttribute="bottom" id="ViL-G6-kP9"/>
                                                 <constraint firstItem="qjW-vP-Sha" firstAttribute="bottom" secondItem="ELQ-Fq-qTb" secondAttribute="bottom" id="dx6-6v-dVX"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ELQ-Fq-qTb" secondAttribute="bottom" constant="21" id="ffr-Qb-xk6"/>
-                                                <constraint firstAttribute="trailing" secondItem="Sor-Y7-WYd" secondAttribute="trailing" constant="132" id="hVh-p1-9Hj"/>
                                                 <constraint firstItem="ELQ-Fq-qTb" firstAttribute="top" secondItem="ZIa-lO-63Q" secondAttribute="topMargin" constant="21" id="wkG-Zv-iG1"/>
-                                                <constraint firstItem="ELQ-Fq-qTb" firstAttribute="leading" secondItem="ZIa-lO-63Q" secondAttribute="leadingMargin" constant="6" id="ytN-dU-Vx6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="allergieName" destination="ELQ-Fq-qTb" id="jJI-pg-iHN"/>
-                                            <outlet property="butEdit" destination="qjW-vP-Sha" id="tm6-Si-ykn"/>
-                                            <outlet property="butRemove" destination="Sor-Y7-WYd" id="PyT-x7-JRV"/>
+                                            <outlet property="buttonEdit" destination="qjW-vP-Sha" id="tm6-Si-ykn"/>
+                                            <outlet property="buttonRemove" destination="Sor-Y7-WYd" id="PyT-x7-JRV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

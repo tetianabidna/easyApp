@@ -14,6 +14,14 @@ protocol RemoveModelDelegate : class{
 
 class MyAllergiesTableViewCell: UITableViewCell {
     
+    var model: UIMyAllergyModel?{
+        didSet{
+            
+            allergieName.text = model?.allergyName
+
+        }
+    }
+    
     weak var delegate: RemoveModelDelegate?
     
     @IBOutlet weak var allergieName: UILabel!
@@ -23,14 +31,8 @@ class MyAllergiesTableViewCell: UITableViewCell {
         
         delegate?.removeModel(currentCell: self)
     }
+    /*
     
-    var model: UIMyAllergyModel?{
-        didSet{
-            
-            allergieName.text = model?.allergyName
-
-        }
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,4 +44,5 @@ class MyAllergiesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
+ */
 }

@@ -11,17 +11,4 @@ import Foundation
 import CoreData
 
 
-public class Provision: NSManagedObject {
-    
-    func toString() -> String{
-        
-        var str = "name: "
-        str.append(self.name!)
-        str.append(";   ingredients: ")
-        str.append(self.ingredients!)
-        
-        
-        return str
-    }
-
-}
+public class Provision: NSManagedObject {}

@@ -9,10 +9,11 @@
 import UIKit
 import CoreData
 
+//The model that is loaded in the myAllergy table
 class UIMyAllergyModel{
     
     var allergyName: String!
-
+    
     init(allergyName: String) {
         self.allergyName = allergyName
     }
@@ -24,111 +25,104 @@ class UIMyAllergyModel{
 
 class IndexViewController: UIViewController  {
     
-    var allAllergies: [Allergy] = [Allergy] ()
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    var context: NSManagedObjectContext?
+    var cdFunctions: CoreDataFunctions?
     
+    var allAllergies: [Allergy] = [Allergy] ()
     var myAllergyModelsArray: [UIMyAllergyModel]?
     var pickerAllergiesArray: [Allergy]?
-
+    
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var myAllergiesTable: UITableView!
     @IBOutlet weak var allergiesPicker: UIPickerView!
     @IBOutlet weak var gradientVideo: UIImageView!
     
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    var context: NSManagedObjectContext?
     
-   override func viewDidLoad() {
-         super.viewDidLoad()
-    
-    
-    context = appDelegate?.persistentContainer.viewContext
-    
-    //deleteAllFromTable()
-    self.allAllergies = loadNamesFromDB()
-   
-    if (allAllergies.count == 0){
-             print("allergyNames was empty")
-             
-             let allergyNames = ["Milch", "Ei", "Soja", "Krebstiere", "Gluten"]
-             for allergy in allergyNames{
-                 saveDataInDB(allergyName: allergy)
-             }
-         }
-    
-            //Connect data to the allergie picker
-            allergiesPicker.delegate = self
-            allergiesPicker.dataSource = self
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        context = appDelegate?.persistentContainer.viewContext
+        self.cdFunctions = CoreDataFunctions(context: context!)
+        
+        //self.cdFunctions!.deleteAll(from: "Allergy") // to comment
+        self.allAllergies = cdFunctions?.loadAll(from: "Allergy") as! [Allergy]
+        
+        //Is activated when the app is opened for the first time
+        if (allAllergies.count == 0){
+                       
+            let allergyNames = ["Milch", "Ei", "Soja", "Krebstiere", "Gluten", "Schalenfrüchte", "Laktose"]
+            for allergyName in allergyNames{
+                
+                let newAllergy = Allergy(context: context!)
+                newAllergy.allergyName = allergyName
+                newAllergy.isEditable = false
+                newAllergy.isChosen = false
+            }
             
-           //Connect data to the allergie table
-           myAllergiesTable.dataSource = self
-           myAllergiesTable.delegate = self as? UITableViewDelegate
+            cdFunctions!.saveContext()
+        }
+        
+        //Connect data to the allergy picker
+        allergiesPicker.delegate = self
+        allergiesPicker.dataSource = self
+        
+        
+        //Connect data to the allergy table
+        myAllergiesTable.dataSource = self
+        myAllergiesTable.delegate = self as? UITableViewDelegate
     }
     
-    func doGradientAnimation(){
-        
-        print("in animation")
-        self.gradientVideo.transform = CGAffineTransform(translationX: 0, y: 0)
-        
-        UIView.animate(withDuration: 8, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
-            
-            let y = self.gradientVideo.frame.height - self.view.frame.height
-            self.gradientVideo.transform = CGAffineTransform(translationX: 0, y: y)
-        })
-    }
     
     override func viewWillAppear(_ animated: Bool){
-        print("*** IndexViewController")
+        
         doGradientAnimation()
-
+        updateInformation()
+    }
+    
+    func updateInformation(){
+        
+        //Picker and table are first emptied
         pickerAllergiesArray = [Allergy]()
         myAllergyModelsArray = [UIMyAllergyModel]()
         
-        self.allAllergies = loadNamesFromDB()
-        
+        //Updated data is fetched from CD
+        self.allAllergies = cdFunctions?.loadAll(from: "Allergy") as! [Allergy]
+
+        //Picker and table are updated with the new data
         for allergy in allAllergies{
+            
             if(allergy.isChosen){
+                
                 myAllergyModelsArray!.append(UIMyAllergyModel(allergyName: allergy.allergyName!))
             }else{
+                
                 pickerAllergiesArray!.append(allergy)
             }
         }
         
-        /*
-        pickerAllergiesArray?.sort(by: {UIContentSizeCategory(rawValue: $0.allergyName!) > UIContentSizeCategory(rawValue: $1.allergyName!)})
-        */
-        
         allergiesPicker.reloadAllComponents()
         myAllergiesTable.reloadData()
-      
     }
-    
-    /*
-    func selectMiddleOfPicker(){
-        let middleOfPicker: Int = allAllergies.count/2
-        allergiesPicker.selectRow(middleOfPicker, inComponent: 0, animated: false)
-    }
-    */
     
     @IBAction func addAllergieToMyList(_ sender: UIButton) {
-        print("add")
         
         if( pickerAllergiesArray!.count > 0){
             
             let selectedRow = allergiesPicker.selectedRow(inComponent: 0)
             
-            let currentModel = pickerAllergiesArray![selectedRow]
+            let currentAllergy = pickerAllergiesArray![selectedRow]
             
-            // change DB
-            currentModel.isChosen = true
-            editElementInDB()
+            // change CD
+            currentAllergy.isChosen = true
+            cdFunctions?.saveContext()
             
             // update picker
             pickerAllergiesArray!.remove(at: selectedRow)
             allergiesPicker.reloadAllComponents()
             
             // update table
-            myAllergyModelsArray!.append(UIMyAllergyModel(allergyName: currentModel.allergyName!))
+            myAllergyModelsArray!.append(UIMyAllergyModel(allergyName: currentAllergy.allergyName!))
             myAllergiesTable.reloadData()
             
             if(pickerAllergiesArray!.count == 0){
@@ -137,103 +131,19 @@ class IndexViewController: UIViewController  {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    // search one element in DB
-    func searchForElementInDB(allergyName: String) -> NSManagedObject{
+    func doGradientAnimation(){
         
-        var output:NSManagedObject?
+        self.gradientVideo.transform = CGAffineTransform(translationX: 0, y: 0)
         
-            //Make request
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Allergy")
+        UIView.animate(withDuration: 5, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
             
-            if let allergies = try! context!.fetch(request) as? [Allergy] {
-                allergies.forEach({
-                    if($0.allergyName == allergyName){
-                        
-                        output = $0
-                    }
-                })
-            }
-        
-        return output!
-    }
-    
-    // DB
-
-    func saveDataInDB(allergyName: String){
-        let newAllergy = Allergy(context: context!)
-        newAllergy.allergyName = allergyName
-        newAllergy.isEditable = false
-        newAllergy.isChosen = false
-
-        do {
-            try context!.save()
-            print("saved successfuly: \(allergyName)")
-        } catch{
-            print(error)
-        }
-    }
-
-    func loadNamesFromDB() -> [Allergy] {
-        print("load")
-        var results: [Allergy] = [Allergy]()
-        
-            let request: NSFetchRequest<Allergy> = Allergy.fetchRequest()
-            
-            do{
-                results = try context!.fetch(request)
-            }catch{
-                
-            }
-        
-        
-        return results
-    }
-
-    func deleteAllFromTable() {
-            //Make request
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Allergy")
-            
-            do{
-                let results = try context!.fetch(request)
-                
-                for r in results{
-                    if let result = r as? NSManagedObject{
-                        context!.delete(result)
-                    }
-                }
-            }catch{
-                print(error)
-            }
-        
-        print("deleted successfuly: all elements")
-    }
-
-    // edit one element from DB
-    func editElementInDB() {
-            
-            do {
-                try context!.save()
-                
-            } catch{
-                print(error)
-            }
-        
-        
-        print("changed successfully")
+            let y = self.gradientVideo.frame.height - self.view.frame.height
+            self.gradientVideo.transform = CGAffineTransform(translationX: 0, y: y)
+        })
     }
 }
 
-
-
-
-
-//Picked
+//Picker data source and delegate management
 extension IndexViewController: UIPickerViewDataSource{
     // Number of columns of data
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -249,35 +159,22 @@ extension IndexViewController: UIPickerViewDataSource{
 
 extension IndexViewController: UIPickerViewDelegate{
     
-    /*
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        return pickerAllergiesArray![row].allergyName
-    }
-    */
-    /*
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        
-        return NSAttributedString(string: pickerAllergiesArray![row].allergyName!, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont(name: "Futura", size: 40)])
-    }
-    */
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-      let label = (view as? UILabel) ?? UILabel()
-
-      label.textColor = .white
-      label.textAlignment = .center
-      label.font = UIFont(name: "Futura", size: 30)
-
-      // where data is an Array of String
-      label.text = pickerAllergiesArray![row].allergyName!
-       
+        let label = (view as? UILabel) ?? UILabel()
         
-
-      return label
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont(name: "Futura", size: 25)
+        
+        // where data is an Array of String
+        label.text = pickerAllergiesArray![row].allergyName!
+        
+        
+        return label
     }
 }
 
-//Table
+//Table data source and delegate management
 extension IndexViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -288,7 +185,7 @@ extension IndexViewController: UITableViewDataSource{
         
         let currentCell = myAllergiesTable.dequeueReusableCell(withIdentifier: "allergies_cell") as! MyAllergiesTableViewCell
         
-        // show elements reverse: myAllergiesArray!.count - indexPath.row - 1
+        // show elements in reverse
         let currentAllergie = myAllergyModelsArray![myAllergyModelsArray!.count - indexPath.row - 1]
         currentCell.model = currentAllergie
         
@@ -299,11 +196,11 @@ extension IndexViewController: UITableViewDataSource{
 }
 
 extension IndexViewController: RemoveModelDelegate{
+    
+    //After an allergy is deleted from the table it is sent to the picker
     func removeModel(currentCell: MyAllergiesTableViewCell) {
         
-        
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
-            print("animation")
             
             currentCell.allergieName.center.x += currentCell.removeButton.center.x - 80
             currentCell.allergieName.alpha = 0
@@ -315,28 +212,27 @@ extension IndexViewController: RemoveModelDelegate{
             currentCell.allergieName.alpha = 1
             
             let currentModel = currentCell.model!
-                
-                
+            
+            
             for (index, model) in self.myAllergyModelsArray!.enumerated(){
-                    if(model.equalTo(toCompare: currentModel)){
-                        self.myAllergyModelsArray!.remove(at: index)
-                        self.myAllergiesTable.reloadData()
-                        break
-                    }
+                if(model.equalTo(toCompare: currentModel)){
+                    self.myAllergyModelsArray!.remove(at: index)
+                    self.myAllergiesTable.reloadData()
+                    break
                 }
-                
+            }
+            
             for allergy in self.allAllergies{
-                    if(allergy.allergyName == currentModel.allergyName){
-                        allergy.isChosen = false
-                        
-                        self.editElementInDB()
-                        
-                        self.pickerAllergiesArray!.append(allergy)
-                        self.allergiesPicker.reloadAllComponents()
-                                               
-                        self.addButton.isEnabled = true
-                    }
+                if(allergy.allergyName == currentModel.allergyName){
+                    allergy.isChosen = false
+                    self.cdFunctions?.saveContext()
+                    
+                    self.pickerAllergiesArray!.append(allergy)
+                    self.allergiesPicker.reloadAllComponents()
+                    
+                    self.addButton.isEnabled = true
                 }
+            }
         })
     }
 }

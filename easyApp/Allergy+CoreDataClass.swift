@@ -11,9 +11,4 @@ import Foundation
 import CoreData
 
 
-public class Allergy: NSManagedObject {
-    
-    func toString(){
-        print("name: \(self.allergyName),   isEditable: \(self.isEditable)  isChosen: \(self.isChosen)")
-    }
-}
+public class Allergy: NSManagedObject {}
