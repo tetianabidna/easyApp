@@ -48,6 +48,8 @@ class ResultViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool){
         
+        doHandAnimation()
+        
         if(swipeLeft != nil){
             doSwipeImgAnimation()
         }
@@ -66,7 +68,7 @@ class ResultViewController: UIViewController {
         if containsAllergens{
             
             picture.image = UIImage(named: "red")
-            okMark.image = UIImage(named: "notOk")
+            //okMark.image = UIImage(named: "notOk")
             
             isRed = true
             
@@ -79,7 +81,7 @@ class ResultViewController: UIViewController {
         }else{
             
             picture.image = UIImage(named: "green")
-            okMark.image = UIImage(named: "OK")
+            //okMark.image = UIImage(named: "OK")
             
             swipeLeftImg.isHidden = true
             swipeLabel.isHidden = true
@@ -95,6 +97,10 @@ class ResultViewController: UIViewController {
     
     @IBAction func showDetails(_ sender: Any) {
         
+        let guide = self.view.safeAreaLayoutGuide
+        let screenHeight = guide.layoutFrame.size.height
+        let screenWidth = self.view.frame.width
+        
         if darkView.transform == CGAffineTransform.identity{
             
             swipeLeftImg.isHidden = true
@@ -105,20 +111,18 @@ class ResultViewController: UIViewController {
                 
                 self.okMark.alpha = 0
                 
-                let screenHeight = self.view.frame.height
-                let screenWidth = self.view.frame.width
-                
-                self.darkView.transform = CGAffineTransform(scaleX: 30, y: 30)
+                self.darkView.transform = CGAffineTransform(scaleX: screenHeight*0.05, y: screenHeight*0.05)
                 self.swipeButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
                 
-                self.detailsView.transform = CGAffineTransform(translationX: 0, y: -(screenHeight - self.detailsView.frame.height - self.navigationController!.navigationBar.frame.height)) // 65 is the navigation bar
-                self.detailsView.frame.size.height += 500
+                self.detailsView.transform = CGAffineTransform(translationX: 0, y: -screenHeight + 180)
                 
-                self.provisionImg.transform = CGAffineTransform(scaleX: 2.1, y: 2.1).concatenating(CGAffineTransform(translationX: -(screenWidth/2.0 - self.provisionImg.frame.width/2.0 - 10), y: self.provisionImg.frame.height + self.navigationController!.navigationBar.frame.height + self.swipeButton.frame.height + 10 - self.provisionImg.center.y))
+                self.detailsView.frame.size.height += screenHeight - 160
                 
-                self.provisionName.transform = CGAffineTransform(translationX: 0, y: self.provisionImg.frame.maxY + 10 - self.provisionName.frame.minY)
+                self.provisionImg.transform = CGAffineTransform(scaleX: 2.1, y: 2.1).concatenating(CGAffineTransform(translationX: -(screenWidth/2.0 - self.provisionImg.frame.width/2.0 - 10), y: self.provisionImg.frame.height + self.navigationController!.navigationBar.frame.height + self.swipeButton.frame.height - self.provisionImg.center.y))
                 
-                self.provisionScrollView.transform = CGAffineTransform(translationX: 0, y: self.provisionScrollView.center.y - 500 - self.provisionScrollView.frame.height - self.provisionImg.frame.maxY + 30)
+                self.provisionName.transform = CGAffineTransform(translationX: 0, y: self.provisionImg.frame.maxY + 20 - self.provisionName.frame.minY)
+                
+                self.provisionScrollView.transform = CGAffineTransform(translationX: 0, y: -screenHeight + self.provisionImg.frame.height + self.navigationController!.navigationBar.frame.height + self.provisionName.frame.height + screenHeight*0.1)
             })
         } else{
             
@@ -127,7 +131,7 @@ class ResultViewController: UIViewController {
                 self.provisionScrollView.transform = .identity
                 self.provisionImg.transform = .identity
                 self.provisionName.transform = .identity
-                self.detailsView.frame.size.height -= 500
+                self.detailsView.frame.size.height -= screenHeight - 160
                 self.detailsView.transform = .identity
                 self.swipeButton.transform = .identity
                 self.darkView.transform = .identity
@@ -145,7 +149,7 @@ class ResultViewController: UIViewController {
     
     func doSwipeImgAnimation(){
         
-        UIView.animate(withDuration: 1.5, delay:0, options: [.curveLinear, .repeat], animations: {
+        UIView.animate(withDuration: 1.5, delay: 0, options: [.curveLinear, .repeat], animations: {
             
             self.swipeLeftImg.transform = CGAffineTransform(translationX: -60, y:0 )
             self.swipeLeftImg.alpha = 0
@@ -155,6 +159,18 @@ class ResultViewController: UIViewController {
             
             self.swipeLeftImg.alpha = 1
             self.swipeLeftImg.transform = .identity
+        })
+    }
+    
+    func doHandAnimation(){
+        
+        UIView.animate(withDuration: 1, delay: 0.5, animations: {
+            
+            if(self.isRed){
+                self.okMark.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
+            }else{
+                self.okMark.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))
+            }
         })
     }
     

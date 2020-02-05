@@ -29,43 +29,35 @@ class UIAllAllergieModel{
 
 class AllergieEditViewController: UIViewController {
     
-    var allAllergiesArray: [Allergy]! = [Allergy]()
-    
     @IBOutlet weak var allAllergiesTable: UITableView!
     @IBOutlet weak var gradientView: UIImageView!
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     var context: NSManagedObjectContext?
+    var cdFunctions: CoreDataFunctions!
+    
+    var allAllergiesArray: [Allergy]! = [Allergy]()
     
     override func viewDidLoad() {
     
         super.viewDidLoad()
         
         context = appDelegate?.persistentContainer.viewContext
+        self.cdFunctions = CoreDataFunctions(context: context!)
     }
     
     
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
+        
         doGradientAnimation()
 
-        self.allAllergiesArray = loadNamesFromDB()
+        self.allAllergiesArray = cdFunctions.loadAll(from: "Allergy") as? [Allergy]
         
         allAllergiesTable.dataSource = self
         allAllergiesTable.delegate = self as? UITableViewDelegate
     }
     
-    func doGradientAnimation(){
-        
-        print("in animation")
-        self.gradientView.transform = CGAffineTransform(translationX: 0, y: 0)
-        
-        UIView.animate(withDuration: 5, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
-            
-            let y = self.gradientView.frame.height - self.view.frame.height
-            self.gradientView.transform = CGAffineTransform(translationX: 0, y: y)
-        })
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -77,9 +69,7 @@ class AllergieEditViewController: UIViewController {
         let alterController = UIAlertController(title: "Neue Allergie", message: "Neue Allergie hinzufügen", preferredStyle: .alert)
         
         // add cancel to alert
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
-            print("Cancel button tapped")
-        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in  }
         alterController.addAction(cancelAction)
         
         // add text field to alert
@@ -97,16 +87,19 @@ class AllergieEditViewController: UIViewController {
                 if(!currentNameExists){
                     
                     // if the name is new then add it to the names array
-                    self.saveDataInDB(allergyName: newAllergieName)
+                    let newAllergy = Allergy(context: self.context!)
+                    newAllergy.allergyName = newAllergieName
+                    newAllergy.isEditable = true
+                    newAllergy.isChosen = false
                     
-                    self.allAllergiesArray = self.loadNamesFromDB()
+                    self.cdFunctions.saveContext()
+                    
+                    
+                    self.allAllergiesArray = self.cdFunctions.loadAll(from: "Allergy") as? [Allergy]
                     self.allAllergiesTable.reloadData()
-                    
-                    print("New allergy was added")
                 }else{
                     
                     alterController.dismiss(animated: false, completion: nil)
-                    print("Warning")
                     
                     let warningAlert = UIAlertController(title: "Warnung", message: "Allergie existiert bereits", preferredStyle: .alert)
                     warningAlert.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action:UIAlertAction!) in })
@@ -114,7 +107,6 @@ class AllergieEditViewController: UIViewController {
                     self.present(warningAlert, animated: true, completion: nil)
                 }
             }
-            
         }
         
         alterController.addAction(submitAction)
@@ -133,83 +125,16 @@ class AllergieEditViewController: UIViewController {
         return false
     }
     
-       // DB
-       // save one element in DB
-       func saveDataInDB(allergyName: String){
+    func doGradientAnimation(){
         
-           let newAllergy = Allergy(context: context!)
-           newAllergy.allergyName = allergyName
-           newAllergy.isEditable = true
-           newAllergy.isChosen = false
-
-           do {
-               try context!.save()
-               print("saved successfuly: \(allergyName)")
-           } catch{
-               print(error)
-           }
-       }
-       
-       
-       func loadNamesFromDB() -> [Allergy] {
-           print("load")
-           var results: [Allergy] = [Allergy]()
-           
-               let request: NSFetchRequest<Allergy> = Allergy.fetchRequest()
-               
-               do{
-                   results = try context!.fetch(request)
-               }catch{
-                   
-               }
-           
-           
-           return results
-       }
-       
-       // edit one element from DB
-       func editElementInDB( ) {
-               do {
-                   try context!.save()
-                   
-               } catch{
-                   print(error)
-               }
-               
-           
-           print("edited successfuly")
-       }
-       
-       // delete one element from DB
-       func deleteElementFromDB( allergy: Allergy) {
-               context!.delete(allergy)
-           
-           print("deleted successfuly: \(allergy.allergyName!)")
-       }
-       
-       /*
-       // search one element in DB
-       func searchForElementInDB(allergyName: String) -> NSManagedObject{
-           
-           var output:NSManagedObject? = nil
+        self.gradientView.transform = CGAffineTransform(translationX: 0, y: 0)
         
-               //Make request
-               let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Allergy")
-               
-               if let allergies = try! context!.fetch(request) as? [Allergy] {
-                   allergies.forEach({
-                       if($0.allergyName == allergyName){
-                           
-                           output = $0
-                       }
-                   })
-               }
-           
-           return output!
-       }
- 
- */
-    
+        UIView.animate(withDuration: 5, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
+            
+            let y = self.gradientView.frame.height - self.view.frame.height
+            self.gradientView.transform = CGAffineTransform(translationX: 0, y: y)
+        })
+    }
 }
 
 //Table delegate
@@ -258,7 +183,7 @@ extension AllergieEditViewController: AllAllergRemoveModelDelegate{
             }
         }
         
-        let alterController = UIAlertController(title: "Edit allergy", message: "", preferredStyle: .alert)
+        let alterController = UIAlertController(title: "Allergie bearbeiten", message: "", preferredStyle: .alert)
 
         alterController.addTextField(configurationHandler: { (textField) in
             textField.placeholder = currentCell.allergieName.text
@@ -271,16 +196,13 @@ extension AllergieEditViewController: AllAllergRemoveModelDelegate{
             if(newAllergieName != ""){
                 currentAllergy!.allergyName = newAllergieName
                 
-                self.editElementInDB()
-                
+                self.cdFunctions.saveContext()
                 currentCell.model?.allergieName = newAllergieName
                 self.allAllergiesTable.reloadData()
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
-            print("Cancel button tapped")
-        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in}
         
         alterController.addAction(cancelAction)
         alterController.addAction(submitAction)
@@ -291,7 +213,6 @@ extension AllergieEditViewController: AllAllergRemoveModelDelegate{
     func removeModel(currentCell: AllAllergiesTableViewCell) {
         
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
-            print("animation")
             
             currentCell.allergieName.center.x += currentCell.buttonRemove.center.x - 80
             currentCell.allergieName.alpha = 0
@@ -301,10 +222,10 @@ extension AllergieEditViewController: AllAllergRemoveModelDelegate{
             
             currentCell.allergieName.alpha = 1
             
-            for (index, model) in self.allAllergiesArray!.enumerated(){
-                if ( model.allergyName == currentCell.model!.allergieName){
+            for (index, allergy) in self.allAllergiesArray!.enumerated(){
+                if ( allergy.allergyName == currentCell.model!.allergieName){
                     
-                    self.deleteElementFromDB(allergy: model)
+                    self.cdFunctions.deleteAllergyFromContext(allergy: allergy)
                     
                     self.allAllergiesArray!.remove(at: index)
                     self.allAllergiesTable.reloadData()

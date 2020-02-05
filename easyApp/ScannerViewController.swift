@@ -31,7 +31,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         context = appDelegate?.persistentContainer.viewContext
         
-       // ProvisionsManager(context: context!) // to comment
+        ProvisionsManager(context: context!) // to comment
         
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()

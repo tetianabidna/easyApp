@@ -17,8 +17,9 @@ class AlternativesViewController: UIViewController {
     
     var provision: Provision!
     var alternativeViewWidth: CGFloat?
+    var provisionViewDictionary = Dictionary<String, Provision>()
     
-    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var mainView: UIViewX!
     @IBOutlet weak var gradientView: UIImageView!
     @IBOutlet weak var noAlternativeText: UITextView!
     
@@ -82,6 +83,8 @@ class AlternativesViewController: UIViewController {
                 }else{
                     addAlternativeToView(provision: provision, startX: startXLeft, startY: startY, isLastAlternative: isLastAlternative)
                 }
+                
+                provisionViewDictionary[provision.name!] = provision
             }
         }else{
             
@@ -92,6 +95,7 @@ class AlternativesViewController: UIViewController {
     func addAlternativeToView(provision: Provision, startX: CGFloat, startY: CGFloat, isLastAlternative: Bool){
         
         let alternativeView = UIView()
+        alternativeView.layer.cornerRadius = 10
         
         let provisionImg = UIImageView()
         provisionImg.image = UIImage(named: provision.picture!)
@@ -141,13 +145,38 @@ class AlternativesViewController: UIViewController {
             
             mainView.addConstraint(bottomConstraint)
         }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        alternativeView.addGestureRecognizer(tap)
     }
+    
+    var tapName: String!
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        
+        let label = sender?.view?.subviews.compactMap { $0 as? UILabel }
+        tapName = label?.first?.text
+        
+        performSegue(withIdentifier: "toAlternativeDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           
+           if(segue.identifier == "toAlternativeDetails"){
+               
+               // Create a new variable to store the instance of PlayerTableViewController
+               let destinationVC = segue.destination as! AlternativeDetailsViewController
+            
+               
+               destinationVC.provision = self.provisionViewDictionary[tapName]
+           }
+       }
     
     func doGradientAnimation(){
         
         self.gradientView.transform = CGAffineTransform(translationX: 0, y: 0)
         
-        UIView.animate(withDuration: 10, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
+        UIView.animate(withDuration: 5, delay:0, options: [.autoreverse, .curveLinear, .repeat], animations: {
             
             let y = self.gradientView.frame.height - self.view.frame.height
             self.gradientView.transform = CGAffineTransform(translationX: 0, y: y)

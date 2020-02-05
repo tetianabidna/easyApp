@@ -15,6 +15,7 @@
 		283E6B5323E352C30053D1E0 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 283E6B5223E352C30053D1E0 /* Base.lproj */; };
 		288D25EF23E4651100106A0F /* AlternativesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288D25EE23E4651100106A0F /* AlternativesViewController.swift */; };
 		288F0F0123C4B7E900B15024 /* AllAllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288F0F0023C4B7E900B15024 /* AllAllergiesTableViewCell.swift */; };
+		288FCA5F23EADE32006D99B7 /* AlternativeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FCA5E23EADE32006D99B7 /* AlternativeDetailsViewController.swift */; };
 		2890185023C4A1710097D404 /* MyAllergiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890184F23C4A1710097D404 /* MyAllergiesTableViewCell.swift */; };
 		2890185223C4AFE80097D404 /* AllergieEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890185123C4AFE80097D404 /* AllergieEditViewController.swift */; };
 		28E3577A23D08892007C87F6 /* Provision+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E3577823D08892007C87F6 /* Provision+CoreDataClass.swift */; };
@@ -42,6 +43,7 @@
 		283E6B5223E352C30053D1E0 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		288D25EE23E4651100106A0F /* AlternativesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativesViewController.swift; sourceTree = "<group>"; };
 		288F0F0023C4B7E900B15024 /* AllAllergiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAllergiesTableViewCell.swift; sourceTree = "<group>"; };
+		288FCA5E23EADE32006D99B7 /* AlternativeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeDetailsViewController.swift; sourceTree = "<group>"; };
 		2890184F23C4A1710097D404 /* MyAllergiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAllergiesTableViewCell.swift; sourceTree = "<group>"; };
 		2890185123C4AFE80097D404 /* AllergieEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergieEditViewController.swift; sourceTree = "<group>"; };
 		28E3577823D08892007C87F6 /* Provision+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provision+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				28027E0523D9D09E008F520A /* UIViewX.swift */,
+				28EAFBF323A2370000C10309 /* AppDelegate.swift */,
 				28EAFBF223A2370000C10309 /* easyApp */,
 				28EAFBF123A2370000C10309 /* Products */,
 			);
@@ -99,7 +102,6 @@
 				2838CDA623C5F58500776E1D /* Allergy+CoreDataProperties.swift */,
 				283E6B5223E352C30053D1E0 /* Base.lproj */,
 				283E6B4F23E352540053D1E0 /* EasyAppModel.xcdatamodeld */,
-				28EAFBF323A2370000C10309 /* AppDelegate.swift */,
 				28EACD6B23E9D1C800303204 /* IndexViewController.swift */,
 				2890184F23C4A1710097D404 /* MyAllergiesTableViewCell.swift */,
 				2890185123C4AFE80097D404 /* AllergieEditViewController.swift */,
@@ -107,6 +109,7 @@
 				2797961923A2478200683EA0 /* ScannerViewController.swift */,
 				28E3577C23D091AA007C87F6 /* ResultViewController.swift */,
 				288D25EE23E4651100106A0F /* AlternativesViewController.swift */,
+				288FCA5E23EADE32006D99B7 /* AlternativeDetailsViewController.swift */,
 				28EAFBF723A2370000C10309 /* Main.storyboard */,
 				28EAFBFA23A2370200C10309 /* Assets.xcassets */,
 				28EDCA6623D736DD005AB5E1 /* provisions.json */,
@@ -201,6 +204,7 @@
 				28E3577A23D08892007C87F6 /* Provision+CoreDataClass.swift in Sources */,
 				28EDCA6123D713F4005AB5E1 /* ProvisionsManager.swift in Sources */,
 				288D25EF23E4651100106A0F /* AlternativesViewController.swift in Sources */,
+				288FCA5F23EADE32006D99B7 /* AlternativeDetailsViewController.swift in Sources */,
 				28EAFBF423A2370000C10309 /* AppDelegate.swift in Sources */,
 				28EACD7023E9D93900303204 /* CoreDataFunctions.swift in Sources */,
 				283E6B5123E352540053D1E0 /* EasyAppModel.xcdatamodeld in Sources */,

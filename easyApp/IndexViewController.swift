@@ -236,3 +236,9 @@ extension IndexViewController: RemoveModelDelegate{
         })
     }
 }
+
+extension UINavigationController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+}

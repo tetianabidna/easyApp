@@ -122,4 +122,11 @@ class CoreDataFunctions{
         
         return fetchedResults
     }
+    
+    func deleteAllergyFromContext( allergy: Allergy) {
+        
+        context.delete(allergy)
+        
+        print("deleted successfuly")
+    }
 }
