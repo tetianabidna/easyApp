@@ -21,10 +21,10 @@ Wie benutze ich die App?
 
 
 Die App wurde auf folgenden Devices getestet:
-iPhone 6s
-iPhone 8
-iPhone 11
-iPhone 11 Pro Max
-iPad Pro (11-inch)
+* iPhone 6s
+* iPhone 8
+* iPhone 11
+* iPhone 11 Pro Max
+* iPad Pro (11-inch)
 
-Um die App zu testen, in barcodes. sind einige Barcodes von Lebensmitteln vorhanden
+Um die App zu testen, in barcodes.pdf sind einige Barcodes von Lebensmitteln vorhanden
