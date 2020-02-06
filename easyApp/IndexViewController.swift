@@ -51,7 +51,7 @@ class IndexViewController: UIViewController  {
         //Is activated when the app is opened for the first time
         if (allAllergies.count == 0){
                        
-            let allergyNames = ["Milch", "Ei", "Soja", "Krebstiere", "Gluten", "Schalenfrüchte", "Laktose"]
+            let allergyNames = ["Ei", "Soja", "Krebstiere", "Gluten", "Schalenfrüchte", "Laktose"]
             for allergyName in allergyNames{
                 
                 let newAllergy = Allergy(context: context!)

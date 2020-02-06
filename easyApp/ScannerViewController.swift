@@ -45,6 +45,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             captureSession.startRunning()
         }
         
+        if #available(iOS 13.0, *) {
+            flashButton.setImage(UIImage(systemName: "bolt"), for: .normal)
+        } else {
+            // Fallback on earlier versions
+        }
+        
         //Add Label and Button to camera view
         self.view.addSubview(helpTextView)
         self.view.addSubview(buttonBackground)

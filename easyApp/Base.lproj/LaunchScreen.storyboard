@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -13,37 +13,55 @@
             <objects>
                 <viewController id="01J-lp-oVM" customClass="ScannerViewController" customModule="easyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="all" translatesAutoresizingMaskIntoConstraints="NO" id="IPO-mz-XMK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="allergens" translatesAutoresizingMaskIntoConstraints="NO" id="IPO-mz-XMK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3m-N7-2IZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3m-N7-2IZ">
+                                <rect key="frame" x="62.666666666666657" y="0.0" width="249.99999999999997" height="812"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Easy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSm-ZJ-cgh">
-                                        <rect key="frame" x="75" y="336" width="265" height="224"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.28381849315068491" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSm-ZJ-cgh">
+                                        <rect key="frame" x="0.0" y="329" width="250" height="154"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="154" id="LMG-Fh-s61"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="77"/>
                                         <color key="textColor" red="0.35291770099999997" green="0.26524737479999999" blue="0.34510609510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKj-NC-D40">
-                                        <rect key="frame" x="223" y="459" width="117" height="78"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKj-NC-D40">
+                                        <rect key="frame" x="130" y="423" width="117" height="78"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="60"/>
                                         <color key="textColor" red="0.35291770099999997" green="0.26524737479999999" blue="0.34510609510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2364619006849315" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.34484696061643838" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oKj-NC-D40" secondAttribute="trailing" constant="3" id="49u-xm-Idz"/>
+                                    <constraint firstItem="WSm-ZJ-cgh" firstAttribute="leading" secondItem="J3m-N7-2IZ" secondAttribute="leading" id="4Xo-O9-KEw"/>
+                                    <constraint firstAttribute="width" constant="250" id="8UJ-wY-Zpp"/>
+                                    <constraint firstAttribute="trailing" secondItem="WSm-ZJ-cgh" secondAttribute="trailing" id="Hcu-fG-XKm"/>
+                                    <constraint firstItem="WSm-ZJ-cgh" firstAttribute="centerY" secondItem="J3m-N7-2IZ" secondAttribute="centerY" id="PgO-i8-Zh4"/>
+                                    <constraint firstItem="oKj-NC-D40" firstAttribute="top" secondItem="WSm-ZJ-cgh" secondAttribute="bottom" constant="-60" id="UW2-oO-Fj0"/>
+                                    <constraint firstItem="WSm-ZJ-cgh" firstAttribute="centerX" secondItem="J3m-N7-2IZ" secondAttribute="centerX" id="V0e-Ul-pQz"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="J3m-N7-2IZ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="DnT-5f-C0h"/>
+                            <constraint firstItem="IPO-mz-XMK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K4C-Ka-dXk"/>
+                            <constraint firstAttribute="bottom" secondItem="J3m-N7-2IZ" secondAttribute="bottom" id="NMc-1C-s20"/>
+                            <constraint firstItem="IPO-mz-XMK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Vrl-DC-VJL"/>
+                            <constraint firstItem="IPO-mz-XMK" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="kMd-Ru-fVl"/>
+                            <constraint firstItem="J3m-N7-2IZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kem-Fb-C8M"/>
+                            <constraint firstAttribute="bottom" secondItem="IPO-mz-XMK" secondAttribute="bottom" id="nQO-pt-6bq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -53,6 +71,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="all" width="483" height="644"/>
+        <image name="allergens" width="483" height="644"/>
     </resources>
 </document>
