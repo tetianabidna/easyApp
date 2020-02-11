@@ -12,7 +12,7 @@
             "name" : " Joghurt mild Schokoballs",
             "barcode" : "4388844174658",
             "ingredients" : " JOGHURT mild, Schokolade-Getreideballszubereitung (Wasser, Zucker, 18% Schokolade-Getreideballs (pflanzliches Fett (Palm), Bitterschokoladenkuvertüre, WEIZENEXTRUDAT (WEIZENMEHL, Zucker, WEIZENMALZ, WEIZENSTÄRKE, Salz, Kakaobutter, natürliches Aroma) mageres Kakaopulver, natürliches Aroma), modifizierte Stärke, Verdickungsmittel (Johannisbrotkernmehl, Xanthan), Säureregulator: Citronensäure), Zucker.",
-            "allergens" : "",
+            "allergens" : "Milchbestandteile: Milcheiweiß und Milchzucker*Enthält: Milch und Milcherzeugnisse (einschließlich Lactose)",
             "category" : "Joghurt",
             "picture": "Joghurt mild Schokoballs"
           },
@@ -52,7 +52,7 @@
             "name" : "Joghurt Erdbeere laktosefrei",
             "barcode" : "4040600978022",
             "ingredients" : "JOGHURT, Erdbeeren**, Zucker, Erdbeersaft** aus Erdbeersaftkonzentrat, modifizierte Stärke, färbendes Pflanzenkonzentrat (Rote Bete), natürliches Aroma, Verdickungsmittel Pektine, Säureregulaor Natriumcitrate, Laktase. **Frucht im Endprodukt: 12%",
-            "allergens" : "Enthält: Milch und Milcherzeugnisse (einschließlich Lactose)",
+            "allergens" : "",
             "category" : "Joghurt",
             "picture": "Landliebe Joghurt auf Frucht Erdbeere laktosefrei"
           },
@@ -68,7 +68,7 @@
             "name" : "MinusL Joghurt Vanille",
             "barcode" : "4062800002024",
             "ingredients" : " JOGHURT mild, Glukose-Fruktose-Sirup, Zucker, modifizierte Stärke, Laktase, Vanillepulver, natürliches Vanillearoma, Säuerungsmittel: Citronensäure; Karamellzuckersirup",
-            "allergens" : "Milchbestandteile: Milcheiweiß und Milchzucker*Enthält: Milch und Milcherzeugnisse (einschließlich Lactose)",
+            "allergens" : "",
             "category" : "Joghurt",
             "picture": "MinusL Joghurt Vanille"
           },

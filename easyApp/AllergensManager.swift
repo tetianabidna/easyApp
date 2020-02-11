@@ -14,23 +14,22 @@ class AllergensManager{
     var descriptonDictionary = [
         "gluten": ["gluten","weizen", "roggen", "gerste", "hafer", "dinkel" ],
         "fisch": ["fisch", "fischerzeugnis", "lachs", "scholle", "hering", "makrele", "thunfisch", "sardine", "sardelle" ],
-        "schalenfrüchte": ["schalenfrüchte", "mandel", "haseln", "waln", "kaschun", "cashew","pistazien", "macadamian", "paran"],
-        "schalenfruechte": ["schalenfruechte", "mandel", "haseln", "waln", "kaschun", "cashew","pistazien", "macadamian", "paran"]
+        "schalenfrüchte": ["schalenfrüchte", "mandel", "haseln", "waln", "kaschun", "cashew","pistazien", "macadamian", "paran", "nuss", "nüsse"],
+        "schalenfruechte": ["schalenfruechte", "mandel", "haseln", "waln", "kaschun", "cashew","pistazien", "macadamian", "paran", "nuss", "nuesse"],
+        "laktose": ["lactose", "laktose"]
     ]
     
     
     func searchForAllergens(ingredients: String, myAllergies: [Allergy]) -> Bool{
         
         for allergy in myAllergies{
-            //print("allergy: \(allergy)")
-            
-                
-                if(descriptonDictionary[allergy.allergyName!] != nil){
-                   // print("is in dictionary")
-                    let allergens = descriptonDictionary[allergy.allergyName!]
+            if(descriptonDictionary[allergy.allergyName!.lowercased()] != nil){
+                    let allergens = descriptonDictionary[allergy.allergyName!.lowercased()]
 
                     for allergen in allergens!{
-                        //print("allergen: \(allergen)")
+                       
+                        print(allergen)
+                        
                         if(ingredients.lowercased().contains(allergen)){
                             return true
                         }
@@ -48,7 +47,7 @@ class AllergensManager{
     }
     
     func searchAllergiesInProvision(provision: Provision, myAllergies:[Allergy]) -> Bool{
-        
+       
         var containsAllergens: Bool = false
         
         containsAllergens = searchForAllergens(ingredients: provision.allergens!, myAllergies: myAllergies)
